@@ -1,0 +1,118 @@
+$bg: #f5f6fa;
+$panel: #ffffff;
+$primary: #0066ff;
+$secondary: #888;
+$success: #28a745;
+$text: #333;
+$border: #ddd;
+
+.sell-container {
+  background: $bg;
+  min-height: 100vh;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+}
+.sell-panel {
+  background: $panel;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 420px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.sell-title {
+  font-size: 1.75rem;
+  color: $text;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.steps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.step {
+  flex: 1;
+  text-align: center;
+  font-size: 0.9rem;
+  color: $secondary;
+  &.active {
+    color: $primary;
+    font-weight: bold;
+    border-bottom: 2px solid $primary;
+    padding-bottom: 0.25rem;
+  }
+}
+.form-section,
+.receipt-section {
+  display: flex;
+  flex-direction: column;
+}
+.form-section label {
+  margin-bottom: 0.5rem;
+  color: $text;
+  font-weight: 500;
+}
+.form-section select,
+.form-section input {
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid $border;
+  border-radius: 6px;
+  font-size: 1rem;
+  &:focus {
+    outline: none;
+    border-color: $primary;
+  }
+}
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+  color: $text;
+}
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.btn {
+  flex: 1;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  & + .btn {
+    margin-left: 0.5rem;
+  }
+}
+.primary {
+  background: $primary;
+  color: white;
+}
+.secondary {
+  background: transparent;
+  color: $text;
+  border: 1px solid $border;
+}
+.success {
+  background: $success;
+  color: white;
+}
+
+@media (max-width: 480px) {
+  .sell-panel {
+    padding: 1.5rem;
+  }
+  .actions {
+    flex-direction: column;
+  }
+  .btn + .btn {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+}

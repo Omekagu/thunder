@@ -1,0 +1,139 @@
+// File: pages/user/BuyCoinPage.scss
+$primary: #1a73e8;
+$secondary: #f1f3f4;
+$success: #34a853;
+$dark: #202124;
+$danger: #ea4335;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: $secondary;
+}
+.card {
+  flex: 1;
+  max-width: 520px;
+  margin: 2rem auto;
+  background-color: white;
+  border-radius: 14px;
+  padding: 2.5rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  font-size: 2rem;
+  color: $dark;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.heading {
+  font-size: 1.5rem;
+  color: $dark;
+  margin-bottom: 1.25rem;
+}
+.field {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+.label {
+  font-weight: 600;
+  color: $dark;
+  margin-bottom: 0.5rem;
+}
+.select,
+.input {
+  width: 100%;
+  padding: 0.85rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  &:focus {
+    border-color: $primary;
+    outline: none;
+  }
+}
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.radio-label {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: $dark;
+}
+.radio-input {
+  margin-right: 0.5rem;
+}
+.payment-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.payment-form .input.short {
+  width: 30%;
+}
+.button-primary {
+  background-color: $primary;
+  color: white;
+  border: none;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+  &:hover {
+    background: darken($primary, 10%);
+  }
+}
+.button-secondary {
+  background-color: transparent;
+  color: $dark;
+  border: 1px solid #ccc;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  flex: 1;
+}
+.button-confirm {
+  background-color: $success;
+  color: white;
+  border: none;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+  &:hover {
+    background: darken($success, 10%);
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  .payment-form {
+    flex-direction: column;
+  }
+  .navigation {
+    flex-direction: column;
+    & > button {
+      margin-bottom: 0.75rem;
+    }
+  }
+}

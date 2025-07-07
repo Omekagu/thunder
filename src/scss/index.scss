@@ -18,6 +18,8 @@
 @use './User/deposit';
 @use './User/withdrawalPage';
 @use './User/referralPage';
+@use './User/buyCoinPage';
+@use './User/sellCoinPage';
 @use './User/components/investplanComponent';
 
 // 🔴 Move all @import *after* @use
