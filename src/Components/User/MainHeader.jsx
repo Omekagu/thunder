@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import {
   FaBars,
   FaTimes,
@@ -93,8 +93,6 @@ export default function MainHeader () {
   const [isMobile, setIsMobile] = useState(false)
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [modalOpen, setModalOpen] = useState(false)
-
-  // Web3 state
   const [provider, setProvider] = useState(null)
   const [signer, setSigner] = useState(null)
   const [walletAddress, setWalletAddress] = useState(null)
@@ -106,6 +104,7 @@ export default function MainHeader () {
   const [txHash, setTxHash] = useState(null)
   const [web3Error, setWeb3Error] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
+  const [web3Modal, setWeb3Modal] = useState(null)
 
   const router = useRouter()
 
@@ -216,7 +215,7 @@ export default function MainHeader () {
     }
   ]
 
-  // Handle window for SSR
+  // Responsive handler
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setIsMobile(window.innerWidth <= 600)
@@ -230,31 +229,66 @@ export default function MainHeader () {
     }
   }, [])
 
-  // Web3Modal: only require on client
-  let web3Modal = null
-  if (typeof window !== 'undefined') {
-    const Web3Modal = require('web3modal').default
-    const WalletConnectProvider =
-      require('@walletconnect/web3-provider').default
-    web3Modal = new Web3Modal({
-      cacheProvider: true,
-      providerOptions: {
-        walletconnect: {
-          package: WalletConnectProvider,
-          options: {
-            rpc: {
-              1: 'https://mainnet.infura.io/v3/...',
-              56: 'https://bsc-dataseed.binance.org/',
-              137: 'https://polygon-rpc.com/'
+  // Dynamically load Web3Modal and providers: WalletConnect, TrustWallet, Coinbase Wallet
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      Promise.all([
+        import('web3modal'),
+        import('@walletconnect/web3-provider'),
+        import('@coinbase/wallet-sdk'),
+        import('@trustwallet/walletconnect-provider')
+      ]).then(
+        ([
+          { default: Web3Modal },
+          { default: WalletConnectProvider },
+          { default: CoinbaseWalletSDK },
+          { default: TrustWalletProvider }
+        ]) => {
+          const providerOptions = {
+            walletconnect: {
+              package: WalletConnectProvider,
+              options: {
+                rpc: {
+                  1: 'https://mainnet.infura.io/v3/...',
+                  56: 'https://bsc-dataseed.binance.org/',
+                  137: 'https://polygon-rpc.com/'
+                }
+              }
+            },
+            coinbasewallet: {
+              package: CoinbaseWalletSDK,
+              options: {
+                appName: 'thunderx',
+                infuraId: '...', // your Infura project ID
+                rpc: '',
+                chainId: 1,
+                darkMode: false
+              }
+            },
+            trust: {
+              package: TrustWalletProvider,
+              options: {
+                rpc: {
+                  1: 'https://mainnet.infura.io/v3/...',
+                  56: 'https://bsc-dataseed.binance.org/',
+                  137: 'https://polygon-rpc.com/'
+                }
+              }
             }
           }
+          setWeb3Modal(
+            new Web3Modal({
+              cacheProvider: true,
+              providerOptions
+            })
+          )
         }
-      }
-    })
-  }
+      )
+    }
+  }, [])
 
-  // Connect wallet (MetaMask, WalletConnect, etc)
-  const connectWallet = async () => {
+  // Connect wallet using Web3Modal (MetaMask, WalletConnect, TrustWallet, Coinbase, etc)
+  const connectWallet = useCallback(async () => {
     setWeb3Error(null)
     if (!web3Modal) {
       setWeb3Error('Web3Modal not available.')
@@ -270,11 +304,24 @@ export default function MainHeader () {
       setWalletAddress(address)
       const network = await ethersProvider.getNetwork()
       setChainId(Number(network.chainId))
+      if (instance.on) {
+        instance.on('accountsChanged', accounts => {
+          setWalletAddress(accounts[0])
+        })
+        instance.on('chainChanged', chainId => {
+          setChainId(Number(chainId))
+        })
+        instance.on('disconnect', () => {
+          setWalletAddress(null)
+          setProvider(null)
+          setSigner(null)
+        })
+      }
       return { ethersProvider, signer, address, network }
     } catch (e) {
       setWeb3Error('Could not connect wallet.')
     }
-  }
+  }, [web3Modal])
 
   // Fetch balances after connection or when modal opens
   useEffect(() => {
@@ -425,6 +472,22 @@ export default function MainHeader () {
           />
         </div>
         <div className='header-actions'>
+          {/* Connect Wallet Button */}
+          {!walletAddress ? (
+            <button
+              className='icon-btn'
+              aria-label='Connect Wallet'
+              onClick={connectWallet}
+              disabled={isLoading}
+              style={isLoading ? { opacity: 0.7, cursor: 'not-allowed' } : {}}
+            >
+              Connect Wallet
+            </button>
+          ) : (
+            <span style={{ fontSize: 12, marginRight: 10 }}>
+              {walletAddress.slice(0, 6)}...{walletAddress.slice(-4)}
+            </span>
+          )}
           <button
             className='icon-btn'
             aria-label='Expand'
