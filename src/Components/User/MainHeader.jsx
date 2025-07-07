@@ -119,6 +119,26 @@ export default function MainHeader () {
       ]
     },
     {
+      header: 'Trade',
+      links: [
+        {
+          icon: <FaPiggyBank />,
+          label: 'Buy Coin',
+          path: '/user/BuyCoinPage'
+        },
+        {
+          icon: <FaChartLine />,
+          label: 'Sell Coin',
+          path: '/user/SellCoinPage'
+        },
+        {
+          icon: <FaChartLine />,
+          label: 'Swap Coin',
+          path: '/user/SwapCoinPage'
+        }
+      ]
+    },
+    {
       header: 'Investment Plans',
       links: [
         {
