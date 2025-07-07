@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import Input from '../../Components/Layouts/Input'
+import Input from '../Components/Layouts/Input'
 import Image from 'next/image'
 
 export default function Home () {
