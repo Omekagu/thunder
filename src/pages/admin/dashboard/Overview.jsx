@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import Header from '../../../Components/Header'
-import Sidebar from '../../../Components/Sidebar'
-// import UserTable from '../../../Components/UserTable'
+import Header from '../../Components/Header'
+import Sidebar from '../../Components/Sidebar'
+// import UserTable from '../../Components/UserTable'
 import { DashboardChart } from '../../Components/DashboardChart'
-import UserTable from '../../../../Components/UserTable'
+import UserTable from '../../../Components/UserTable'
 
 export default function Overview () {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true) // Sidebar default open

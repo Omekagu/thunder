@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import Sidebar from '../../../Components/Sidebar'
-import Header from '../../../Components/Header'
-import UserTable from '../../../Components/UserTable'
+import Sidebar from '../../Components/Sidebar'
+import Header from '../../Components/Header'
+import UserTable from '../../Components/UserTable'
 
 const ActiveUsers = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import Sidebar from '../../../Components/Sidebar'
-import Header from '../../../Components/Header'
+import Sidebar from '../../Components/Sidebar'
+import Header from '../../Components/Header'
 // import BookingAdminBox from '../../Components/BookingAdminBox'
-import BookingHistoryComponent from '../../../Components/BookingHistoryComponent'
+import BookingHistoryComponent from '../../Components/BookingHistoryComponent'
 
 const Bookings = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)

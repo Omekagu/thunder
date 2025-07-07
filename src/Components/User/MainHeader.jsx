@@ -115,7 +115,7 @@ export default function MainHeader () {
       header: null,
       links: [
         { icon: <FaHome />, label: 'Dashboard', path: '/user/UserDashboard' },
-        { icon: <FaUser />, label: 'Profile', path: '/user/profile' }
+        { icon: <FaUser />, label: 'Profile', path: '/user/ProfilePage' }
       ]
     },
     {
@@ -123,57 +123,69 @@ export default function MainHeader () {
       links: [
         {
           icon: <FaPiggyBank />,
-          label: 'All Plans',
-          path: '/user/investmentPlans'
+          label: 'Plans',
+          path: '/user/InvestmentPlan'
         },
         {
           icon: <FaChartLine />,
-          label: 'Active Investments',
-          path: '/user/investmentPlans/active'
+          label: 'Active Investment',
+          path: '/user/ActivePlanPage'
         },
         {
           icon: <FaChartLine />,
           label: 'Earnings',
-          path: '/user/investmentPlans/earnings'
+          path: '/user/EarningsPage'
         }
       ]
     },
     {
       header: 'Loans',
       links: [
-        { icon: <FaMoneyCheckAlt />, label: 'My Loans', path: '/user/Loans' },
+        {
+          icon: <FaMoneyCheckAlt />,
+          label: 'Take Loan',
+          path: '/user/LoansPage'
+        },
         {
           icon: <FaMoneyCheckAlt />,
           label: 'Apply for Loan',
-          path: '/user/Loans/apply'
+          path: '/user/ApplyLoanPage'
         },
         {
           icon: <FaMoneyCheckAlt />,
           label: 'Loan History',
-          path: '/user/Loans/history'
+          path: '/user/LoanHistoryPage'
         }
       ]
     },
     {
       header: 'Transactions',
       links: [
-        { icon: <FaChartLine />, label: 'Referral', path: '/user/referral' },
-        { icon: <FaChartLine />, label: 'Deposit', path: '/user/deposit' },
+        {
+          icon: <FaChartLine />,
+          label: 'Referral',
+          path: '/user/ReferralPage'
+        },
+        { icon: <FaChartLine />, label: 'Deposit', path: '/user/DepositPage' },
         {
           icon: <FaChartLine />,
           label: 'Withdrawal',
-          path: '/user/withdrawal'
+          path: '/user/WithdrawalPage'
         },
-        { icon: <FaExchangeAlt />, label: 'Transfer', path: '/user/transfer' }
+        {
+          icon: <FaExchangeAlt />,
+          label: 'Transfer',
+          path: '/user/TransferPage'
+        }
       ]
     },
     {
       header: 'Privacy',
       links: [
-        { icon: <FaCreditCard />, label: 'Card', path: '/user/card' },
-        { icon: <FaHistory />, label: 'History', path: '/user/history' },
-        { icon: <FaIdBadge />, label: 'KYC', path: '/user/kyc' },
-        { icon: <FaKey />, label: 'Password', path: '/user/password' },
+        { icon: <FaCreditCard />, label: 'Card', path: '/user/CardPage' },
+        { icon: <FaHistory />, label: 'History', path: '/user/HistoryPage' },
+        { icon: <FaIdBadge />, label: 'KYC', path: '/user/kycPage' },
+        { icon: <FaKey />, label: 'Password', path: '/user/PasswordPage' },
         {
           icon: <FaSignOutAlt />,
           label: 'Logout',

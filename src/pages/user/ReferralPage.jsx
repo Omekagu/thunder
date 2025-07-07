@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FaCopy, FaUserPlus } from 'react-icons/fa'
-import MainHeader from '../../../Components/User/MainHeader'
+import MainHeader from '../../Components/User/MainHeader'
 
 const dummyReferrals = [
   {

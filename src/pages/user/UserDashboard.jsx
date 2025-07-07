@@ -1,5 +1,5 @@
-// import { UserAmount } from '../../Components/User/UserAmount'
-// import InvestmentHistory from '../../Components/User/InvestmentHistory'
+import UserAmount from '../../Components/User/UserAmount'
+import InvestmentHistory from '../../Components/User/InvestmentHistory'
 import MainHeader from '../../Components/User/MainHeader'
 
 export default function UserDashboard () {
@@ -8,10 +8,10 @@ export default function UserDashboard () {
       <MainHeader />
 
       {/* TOP CARD from Image 2 */}
-      {/* <UserAmount /> */}
+      <UserAmount />
 
       {/* Investment History */}
-      {/* <InvestmentHistory /> */}
+      <InvestmentHistory />
     </div>
   )
 }
