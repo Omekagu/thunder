@@ -1,25 +1,25 @@
-// components/PrivateRoute.jsx
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
 const PrivateRoute = ({ children }) => {
   const router = useRouter()
   const [authorized, setAuthorized] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Ensure we are in the browser
     if (typeof window !== 'undefined') {
       const token = localStorage.getItem('token')
-
       if (!token) {
         router.push('/user/Login')
       } else {
         setAuthorized(true)
       }
+      setLoading(false)
     }
   }, [router])
 
-  if (!authorized) return null // or a loading spinner
+  if (loading) return <div>Loading...</div>
+  if (!authorized) return null
 
   return children
 }
