@@ -1,8 +1,9 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { useRouter } from 'next/router'
 
 const PrivateRoute = () => {
-  const token = localStorage.getItem("token");
-  return token ? <Outlet /> : <Navigate to="/login" />;
-};
+  const router = useRouter()
+  const token = localStorage.getItem('token')
+  return token ? <Outlet /> : router.push('/login')
+}
 
-export default PrivateRoute;
+export default PrivateRoute

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useRouter } from 'next/router'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -9,15 +9,15 @@ const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
-  const navigate = useNavigate()
+  const router = useRouter()
 
   // Redirect to dashboard if already logged in
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (token) {
-      navigate('/user/dashboard')
+      router.push('/src/pages/UserRoutes/Dashboard') // Adjust the path as needed
     }
-  }, [navigate])
+  }, [router])
 
   const handleLogin = async e => {
     e.preventDefault()
@@ -37,7 +37,7 @@ const Login = () => {
       const token = res.data.token
       localStorage.setItem('token', token)
       toast.success('Login successful!', { position: 'top-right' })
-      navigate('/user/dashboard') // Redirect after login
+      router.push('/user/dashboard') // Redirect after login
     } catch (err) {
       console.error('Login Error:', err)
 
@@ -87,7 +87,7 @@ const Login = () => {
           />
           <p
             className='login__forgot-text'
-            onClick={() => navigate('/forgot-password')}
+            onClick={() => router.push('/forgot-password')}
           >
             Forgot password?
           </p>
