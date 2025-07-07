@@ -5,7 +5,7 @@ import Sidebar from '../../../Components/Sidebar'
 import { DashboardChart } from '../../Components/DashboardChart'
 import UserTable from '../../../../Components/UserTable'
 
-export default function Overview = () => {
+export default function Overview () {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true) // Sidebar default open
 
   // Toggle Sidebar Function

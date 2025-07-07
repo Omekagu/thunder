@@ -71,58 +71,59 @@ const typeToColor = {
   Dividend: '#ffd700'
 }
 
-export default function InvestmentHistory = () => (
-  <section className='investment-history'>
-    <div className='history-header'>Transaction History</div>
-    <div className='history-list'>
-      {dummyHistory.map(item => (
-        <div className='history-item' key={item.id}>
-          <div
-            className='history-icon'
-            style={{ background: typeToColor[item.type] }}
-          >
-            {typeToIcon[item.type]}
-          </div>
-          <div className='history-details'>
-            <div className='history-row'>
-              <span className='history-type'>{item.type}</span>
-              <span
-                className={`history-amount ${
-                  item.type === 'Deposit' ||
-                  item.type === 'Interest' ||
-                  item.type === 'Dividend'
-                    ? 'positive'
-                    : 'negative'
-                }`}
-              >
-                {item.type === 'Withdraw' ? '-' : '+'}${item.amount.toFixed(2)}
-              </span>
+export default function InvestmentHistory () {
+  return (
+    <section className='investment-history'>
+      <div className='history-header'>Transaction History</div>
+      <div className='history-list'>
+        {dummyHistory.map(item => (
+          <div className='history-item' key={item.id}>
+            <div
+              className='history-icon'
+              style={{ background: typeToColor[item.type] }}
+            >
+              {typeToIcon[item.type]}
             </div>
-            <div className='history-row'>
-              <span className='history-date'>
-                {new Date(item.date).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'short',
-                  day: 'numeric',
-                  hour: '2-digit',
-                  minute: '2-digit'
-                })}
-              </span>
-              <span
-                className={`history-status ${item.status.toLowerCase()}`}
-                title={item.status}
-              >
-                {item.status}
-              </span>
+            <div className='history-details'>
+              <div className='history-row'>
+                <span className='history-type'>{item.type}</span>
+                <span
+                  className={`history-amount ${
+                    item.type === 'Deposit' ||
+                    item.type === 'Interest' ||
+                    item.type === 'Dividend'
+                      ? 'positive'
+                      : 'negative'
+                  }`}
+                >
+                  {item.type === 'Withdraw' ? '-' : '+'}$
+                  {item.amount.toFixed(2)}
+                </span>
+              </div>
+              <div className='history-row'>
+                <span className='history-date'>
+                  {new Date(item.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                  })}
+                </span>
+                <span
+                  className={`history-status ${item.status.toLowerCase()}`}
+                  title={item.status}
+                >
+                  {item.status}
+                </span>
+              </div>
+              {item.description && (
+                <div className='history-desc'>{item.description}</div>
+              )}
             </div>
-            {item.description && (
-              <div className='history-desc'>{item.description}</div>
-            )}
           </div>
-        </div>
-      ))}
-    </div>
-  </section>
-)
-
-export default InvestmentHistory
+        ))}
+      </div>
+    </section>
+  )
+}
