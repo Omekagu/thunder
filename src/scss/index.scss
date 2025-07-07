@@ -20,6 +20,9 @@
 @use './User/referralPage';
 @use './User/buyCoinPage';
 @use './User/sellCoinPage';
+@use './User/applyLoanPage';
+@use './User/loansHistory';
+@use './User/loansPage';
 @use './User/components/investplanComponent';
 
 // 🔴 Move all @import *after* @use
