@@ -4,8 +4,9 @@ import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Input from '../../Components/Layouts/Input'
+import Image from 'next/image'
 
-const Login = () => {
+export default function Login () {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
@@ -66,10 +67,15 @@ const Login = () => {
     <div className='login'>
       <ToastContainer />
       <div className='login__container'>
-        <img
-          src='https://i.postimg.cc/NjS69Ysh/thunder-Xtorm-logo.png'
+        <Image
+          source={{
+            uri: 'https://i.postimg.cc/NjS69Ysh/thunder-Xtorm-logo.png'
+          }}
+          // so='https://i.postimg.cc/NjS69Ysh/thunder-Xtorm-logo.png'
           alt='logo'
           className='login__img'
+          width={150}
+          height={150}
         />
         <h3 className='login__head'>Login</h3>
 
@@ -103,5 +109,3 @@ const Login = () => {
     </div>
   )
 }
-
-export default Login
