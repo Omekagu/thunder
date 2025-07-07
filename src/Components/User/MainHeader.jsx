@@ -115,7 +115,7 @@ export default function MainHeader () {
       header: null,
       links: [
         { icon: <FaHome />, label: 'Dashboard', path: '/user/UserDashboard' },
-        { icon: <FaUser />, label: 'Profile', path: '/user/ProfilePage' }
+        { icon: <FaUser />, label: 'Profile', path: '/user/Profilepage' }
       ]
     },
     {
