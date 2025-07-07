@@ -249,7 +249,7 @@ export default function MainHeader () {
               package: WalletConnectProvider,
               options: {
                 rpc: {
-                  1: 'https://mainnet.infura.io/v3/...',
+                  1: 'https://mainnet.infura.io/v3/a75423767a484c8abdd6d6d5635b4281',
                   56: 'https://bsc-dataseed.binance.org/',
                   137: 'https://polygon-rpc.com/'
                 }
@@ -259,7 +259,7 @@ export default function MainHeader () {
               package: CoinbaseWalletSDK,
               options: {
                 appName: 'thunderx',
-                infuraId: '...', // your Infura project ID
+                infuraId: 'a75423767a484c8abdd6d6d5635b4281', // your Infura project ID
                 rpc: '',
                 chainId: 1,
                 darkMode: false
@@ -269,7 +269,7 @@ export default function MainHeader () {
               package: TrustWalletProvider,
               options: {
                 rpc: {
-                  1: 'https://mainnet.infura.io/v3/...',
+                  1: 'https://mainnet.infura.io/v3/a75423767a484c8abdd6d6d5635b4281',
                   56: 'https://bsc-dataseed.binance.org/',
                   137: 'https://polygon-rpc.com/'
                 }
