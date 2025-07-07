@@ -235,14 +235,12 @@ export default function MainHeader () {
       Promise.all([
         import('web3modal'),
         import('@walletconnect/web3-provider'),
-        import('@coinbase/wallet-sdk'),
-        import('@trustwallet/walletconnect-provider')
+        import('@coinbase/wallet-sdk')
       ]).then(
         ([
           { default: Web3Modal },
           { default: WalletConnectProvider },
-          { default: CoinbaseWalletSDK },
-          { default: TrustWalletProvider }
+          { default: CoinbaseWalletSDK }
         ]) => {
           const providerOptions = {
             walletconnect: {
@@ -263,16 +261,6 @@ export default function MainHeader () {
                 rpc: '',
                 chainId: 1,
                 darkMode: false
-              }
-            },
-            trust: {
-              package: TrustWalletProvider,
-              options: {
-                rpc: {
-                  1: 'https://mainnet.infura.io/v3/a75423767a484c8abdd6d6d5635b4281',
-                  56: 'https://bsc-dataseed.binance.org/',
-                  137: 'https://polygon-rpc.com/'
-                }
               }
             }
           }
@@ -475,7 +463,7 @@ export default function MainHeader () {
           {/* Connect Wallet Button */}
           {!walletAddress ? (
             <button
-              className='icon-btn'
+              className='connect-wallet-btn'
               aria-label='Connect Wallet'
               onClick={connectWallet}
               disabled={isLoading}
