@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import Sidebar from '../../../Components/Sidebar'
-import Header from '../../../Components/Header'
-// import BookingAdminBox from '../../Components/BookingAdminBox'
-import BookingHistoryComponent from '../../../Components/BookingHistoryComponent'
+import Sidebar from '../../Components/Sidebar'
+import Header from '../../Components/Header'
+import UserTable from '../../Components/UserTable'
 
-const Bookings = () => {
+const ActiveUsers = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
 
   const toggleSidebar = () => setIsSidebarOpen(prev => !prev)
@@ -23,12 +22,11 @@ const Bookings = () => {
         <Header toggleSidebar={toggleSidebar} />
         <div className='dashboard__content'>
           {/* Active user content  */}
-          {/* <BookingAdminBox /> */}
-          <BookingHistoryComponent />
+          <UserTable />
         </div>
       </div>
     </div>
   )
 }
 
-export default Bookings
+export default ActiveUsers

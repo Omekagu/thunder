@@ -24,38 +24,54 @@ import {
 } from '@mui/icons-material'
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 const Sidebar = ({ isOpen, onClose }) => {
-  const [activePath, setActivePath] = useState(Link.path)
+  const router = useRouter()
+  const [activePath, setActivePath] = useState(router.asPath)
   const [openDropdowns, setOpenDropdowns] = useState({
     dashboard: false,
-    manageUsers: false
+    manageusers: false
   })
+  const [showSidebar, setShowSidebar] = useState(isOpen)
+  const [isMobile, setIsMobile] = useState(false)
 
-  // Responsive: close sidebar on route change (mobile)
+  // Responsive: update active path on route change
   useEffect(() => {
-    setActivePath(Link.path)
-    if (window.innerWidth <= 768 && onClose) onClose()
+    setActivePath(router.asPath)
+    if (typeof window !== 'undefined' && window.innerWidth <= 768 && onClose)
+      onClose()
     // eslint-disable-next-line
-  }, [Link.path])
+  }, [router.asPath])
 
-  // Close sidebar when window resizes above mobile
+  // Detect mobile and close sidebar when resize > 768px
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 768 && onClose) onClose()
+    if (typeof window !== 'undefined') {
+      setIsMobile(window.innerWidth <= 768)
+      const handleResize = () => {
+        setIsMobile(window.innerWidth <= 768)
+        if (window.innerWidth > 768 && onClose) onClose()
+      }
+      window.addEventListener('resize', handleResize)
+      return () => window.removeEventListener('resize', handleResize)
     }
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-    // eslint-disable-next-line
-  }, [])
+  }, [onClose])
+
+  // Hamburger: show/hide sidebar on mobile
+  useEffect(() => {
+    setShowSidebar(isOpen)
+  }, [isOpen])
 
   const toggleDropdown = menu => {
-    setOpenDropdowns(prev => ({ ...prev, [menu]: !prev[menu] }))
+    setOpenDropdowns(prev => ({
+      ...prev,
+      [menu]: !prev[menu]
+    }))
   }
 
   const links = [
     {
-      path: 'admin/dashboard',
+      path: '/admin/dashboard',
       name: 'Dashboard',
       icon: <Home />,
       category: 'HOME',
@@ -190,15 +206,9 @@ const Sidebar = ({ isOpen, onClose }) => {
     return acc
   }, {})
 
-  // Hamburger: show/hide sidebar on mobile
-  const [showSidebar, setShowSidebar] = useState(isOpen)
-
-  useEffect(() => {
-    setShowSidebar(isOpen)
-  }, [isOpen])
-
+  // Sidebar overlay for mobile
   const Overlay = () =>
-    showSidebar && window.innerWidth <= 768 ? (
+    showSidebar && isMobile ? (
       <div
         style={{
           position: 'fixed',
@@ -229,43 +239,57 @@ const Sidebar = ({ isOpen, onClose }) => {
             <div key={category}>
               <p className='sidebar__subhead'>{category}</p>
               {links.map(link => (
-                <React.Fragment key={Link.path}>
+                <React.Fragment key={link.path}>
                   {/* If the link has a dropdown */}
                   {link.dropdown ? (
                     <>
                       <div
                         className={`sidebar__link ${
-                          openDropdowns[link.name.toLowerCase()] ? 'open' : ''
+                          openDropdowns[
+                            link.name.toLowerCase().replace(/\s/g, '')
+                          ]
+                            ? 'open'
+                            : ''
                         }`}
-                        onClick={() => toggleDropdown(link.name.toLowerCase())}
+                        onClick={() =>
+                          toggleDropdown(
+                            link.name.toLowerCase().replace(/\s/g, '')
+                          )
+                        }
                         tabIndex={0}
                         role='button'
                         aria-expanded={
-                          openDropdowns[link.name.toLowerCase()]
+                          openDropdowns[
+                            link.name.toLowerCase().replace(/\s/g, '')
+                          ]
                             ? 'true'
                             : 'false'
                         }
                       >
                         {link.icon}{' '}
                         <p className='sidebar__name'>{link.name} </p>
-                        {openDropdowns[link.name.toLowerCase()] ? (
+                        {openDropdowns[
+                          link.name.toLowerCase().replace(/\s/g, '')
+                        ] ? (
                           <ExpandLess />
                         ) : (
                           <ExpandMore />
                         )}
                       </div>
-                      {openDropdowns[link.name.toLowerCase()] && (
+                      {openDropdowns[
+                        link.name.toLowerCase().replace(/\s/g, '')
+                      ] && (
                         <div className='sidebar__submenu open'>
                           {link.submenu.map(sub => (
                             <Link
-                              to={sub.path}
+                              href={sub.path}
                               key={sub.path}
                               className={`sidebar__sublink ${
                                 activePath === sub.path ? 'active' : ''
                               }`}
-                              onClick={() => ''}
+                              onClick={onClose}
                             >
-                              <p className='sidebar__subname'>{sub.name} </p>
+                              <p className='sidebar__subname'>{sub.name}</p>
                             </Link>
                           ))}
                         </div>
@@ -273,11 +297,11 @@ const Sidebar = ({ isOpen, onClose }) => {
                     </>
                   ) : (
                     <Link
-                      to={Link.path}
+                      href={link.path}
                       className={`sidebar__link ${
-                        activePath === Link.path ? 'active' : ''
+                        activePath === link.path ? 'active' : ''
                       }`}
-                      onClick={() => ''}
+                      onClick={onClose}
                     >
                       {link.icon} <p className=''>{link.name} </p>
                     </Link>

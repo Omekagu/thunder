@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { useLocation, useNavigate } from 'next/navigation'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import {
   Menu,
   NotificationsNone,
@@ -9,8 +10,7 @@ import {
 import { Avatar } from '@mui/material'
 
 const Header = ({ toggleSidebar }) => {
-  const location = useLocation()
-  const navigate = useNavigate() // Get navigate function
+  const router = useRouter()
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
 
   // Page Titles Mapping

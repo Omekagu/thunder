@@ -18,10 +18,8 @@ import {
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { ethers } from 'ethers'
-import Web3Modal from 'web3modal'
-import WalletConnectProvider from '@walletconnect/web3-provider'
 
-// Supported chains and popular tokens (expand as needed)
+// Supported chains and tokens
 const CHAINS = [
   {
     id: 1,
@@ -91,24 +89,8 @@ const ERC20_ABI = [
   'function balanceOf(address) view returns (uint)'
 ]
 
-const web3Modal = new Web3Modal({
-  cacheProvider: true,
-  providerOptions: {
-    walletconnect: {
-      package: WalletConnectProvider,
-      options: {
-        rpc: {
-          1: CHAINS[0].rpc,
-          56: CHAINS[1].rpc,
-          137: CHAINS[2].rpc
-        }
-      }
-    }
-  }
-})
-
 export default function MainHeader () {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 600)
+  const [isMobile, setIsMobile] = useState(false)
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [modalOpen, setModalOpen] = useState(false)
 
@@ -124,8 +106,8 @@ export default function MainHeader () {
   const [txHash, setTxHash] = useState(null)
   const [web3Error, setWeb3Error] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
+
   const router = useRouter()
-  router.push('/')
 
   // Sidebar structure with headers and sub-links
   const sidebarSections = [
@@ -202,19 +184,50 @@ export default function MainHeader () {
     }
   ]
 
+  // Handle window for SSR
   useEffect(() => {
-    const handleResize = () => {
-      const mobile = window.innerWidth <= 600
-      setIsMobile(mobile)
-      if (!mobile) setDrawerOpen(false)
+    if (typeof window !== 'undefined') {
+      setIsMobile(window.innerWidth <= 600)
+      const handleResize = () => {
+        const mobile = window.innerWidth <= 600
+        setIsMobile(mobile)
+        if (!mobile) setDrawerOpen(false)
+      }
+      window.addEventListener('resize', handleResize)
+      return () => window.removeEventListener('resize', handleResize)
     }
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
   }, [])
+
+  // Web3Modal: only require on client
+  let web3Modal = null
+  if (typeof window !== 'undefined') {
+    const Web3Modal = require('web3modal').default
+    const WalletConnectProvider =
+      require('@walletconnect/web3-provider').default
+    web3Modal = new Web3Modal({
+      cacheProvider: true,
+      providerOptions: {
+        walletconnect: {
+          package: WalletConnectProvider,
+          options: {
+            rpc: {
+              1: 'https://mainnet.infura.io/v3/...',
+              56: 'https://bsc-dataseed.binance.org/',
+              137: 'https://polygon-rpc.com/'
+            }
+          }
+        }
+      }
+    })
+  }
 
   // Connect wallet (MetaMask, WalletConnect, etc)
   const connectWallet = async () => {
     setWeb3Error(null)
+    if (!web3Modal) {
+      setWeb3Error('Web3Modal not available.')
+      return
+    }
     try {
       const instance = await web3Modal.connect()
       const ethersProvider = new ethers.BrowserProvider(instance)
@@ -309,7 +322,6 @@ export default function MainHeader () {
         setIsLoading(false)
         return
       }
-      // const chain = CHAINS.find(c => c.id === Number(chainId))
       const token = balances[selectedTokenIdx]
       if (!ethers.isAddress(recipient)) {
         setWeb3Error('Recipient address is invalid.')
@@ -359,9 +371,11 @@ export default function MainHeader () {
 
   const handleLogout = e => {
     e.preventDefault()
-    localStorage.removeItem('token')
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('token')
+    }
     setDrawerOpen(false)
-    navigate('/')
+    router.push('/')
   }
 
   const chain = CHAINS.find(c => c.id === Number(chainId))
@@ -581,27 +595,32 @@ export default function MainHeader () {
                 <li className='drawer-category-header'>{section.header}</li>
               )}
               {section.links.map((link, idx) => (
-                <li key={Link.path + idx} onClick={() => setDrawerOpen(false)}>
+                <li key={link.path + idx} onClick={() => setDrawerOpen(false)}>
                   {link.action === 'logout' ? (
-                    <a
-                      href='/'
+                    <button
                       className='drawer-link'
                       onClick={handleLogout}
                       style={{
                         color:
-                          router.pathname === Link.path ? '#61CE70' : undefined
+                          router.pathname === link.path ? '#61CE70' : undefined,
+                        background: 'none',
+                        border: 'none',
+                        padding: 0,
+                        display: 'flex',
+                        alignItems: 'center',
+                        cursor: 'pointer'
                       }}
                     >
                       <span className='drawer-icon'>{link.icon}</span>
                       <span>{link.label}</span>
-                    </a>
+                    </button>
                   ) : (
                     <Link
-                      to={Link.path}
+                      href={link.path}
                       className='drawer-link'
                       style={{
                         color:
-                          router.pathname === Link.path ? '#61CE70' : undefined
+                          router.pathname === link.path ? '#61CE70' : undefined
                       }}
                     >
                       <span className='drawer-icon'>{link.icon}</span>
