@@ -23,11 +23,10 @@ import {
   Update
 } from '@mui/icons-material'
 import React, { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import Link from 'next/link'
 
 const Sidebar = ({ isOpen, onClose }) => {
-  const location = useLocation()
-  const [activePath, setActivePath] = useState(location.pathname)
+  const [activePath, setActivePath] = useState(Link.path)
   const [openDropdowns, setOpenDropdowns] = useState({
     dashboard: false,
     manageUsers: false
@@ -35,10 +34,10 @@ const Sidebar = ({ isOpen, onClose }) => {
 
   // Responsive: close sidebar on route change (mobile)
   useEffect(() => {
-    setActivePath(location.pathname)
+    setActivePath(Link.path)
     if (window.innerWidth <= 768 && onClose) onClose()
     // eslint-disable-next-line
-  }, [location.pathname])
+  }, [Link.path])
 
   // Close sidebar when window resizes above mobile
   useEffect(() => {
@@ -230,7 +229,7 @@ const Sidebar = ({ isOpen, onClose }) => {
             <div key={category}>
               <p className='sidebar__subhead'>{category}</p>
               {links.map(link => (
-                <React.Fragment key={link.path}>
+                <React.Fragment key={Link.path}>
                   {/* If the link has a dropdown */}
                   {link.dropdown ? (
                     <>
@@ -274,9 +273,9 @@ const Sidebar = ({ isOpen, onClose }) => {
                     </>
                   ) : (
                     <Link
-                      to={link.path}
+                      to={Link.path}
                       className={`sidebar__link ${
-                        activePath === link.path ? 'active' : ''
+                        activePath === Link.path ? 'active' : ''
                       }`}
                       onClick={() => ''}
                     >

@@ -1,6 +1,6 @@
 import React from 'react'
 // import { RiDownload2Line, RiUpload2Line } from 'react-icons/ri'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 export const UserAmount = () => {
   return (
@@ -23,14 +23,14 @@ export const UserAmount = () => {
       <div className='user-balance-amount'>$1050.99</div>
       <div className='user-actions-row'>
         <button className='user-action-btn'>
-          <Link to={'/user/deposit'}>
+          <Link href={'/user/deposit'}>
             {/* <RiDownload2Line className='action-icon' /> */}
             Deposit
           </Link>
         </button>
         <span className='user-action-divider' />
         <button className='user-action-btn'>
-          <Link to={'/user/withdrawal'}>
+          <Link href={'/user/withdrawal'}>
             {/* <RiUpload2Line className='user-action-icon' /> */}
             Withdraw
           </Link>

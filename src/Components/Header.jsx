@@ -43,7 +43,7 @@ const Header = ({ toggleSidebar }) => {
   }
 
   // Get the current page name
-  const activePage = pageTitles[location.pathname] || 'Not Found'
+  const activePage = pageTitles[Link.path] || 'Not Found'
 
   // Toggle User Dropdown
   const toggleDropdown = () => {

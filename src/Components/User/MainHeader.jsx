@@ -15,7 +15,8 @@ import {
   FaKey,
   FaExchangeAlt
 } from 'react-icons/fa'
-import { Link, useNavigate, useLocation } from 'react-router-dom'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { ethers } from 'ethers'
 import Web3Modal from 'web3modal'
 import WalletConnectProvider from '@walletconnect/web3-provider'
@@ -123,8 +124,8 @@ export default function MainHeader () {
   const [txHash, setTxHash] = useState(null)
   const [web3Error, setWeb3Error] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
-  const navigate = useNavigate()
-  const location = useLocation()
+  const router = useRouter()
+  router.push('/')
 
   // Sidebar structure with headers and sub-links
   const sidebarSections = [
@@ -580,7 +581,7 @@ export default function MainHeader () {
                 <li className='drawer-category-header'>{section.header}</li>
               )}
               {section.links.map((link, idx) => (
-                <li key={link.path + idx} onClick={() => setDrawerOpen(false)}>
+                <li key={Link.path + idx} onClick={() => setDrawerOpen(false)}>
                   {link.action === 'logout' ? (
                     <a
                       href='/'
@@ -588,9 +589,7 @@ export default function MainHeader () {
                       onClick={handleLogout}
                       style={{
                         color:
-                          location.pathname === link.path
-                            ? '#61CE70'
-                            : undefined
+                          router.pathname === Link.path ? '#61CE70' : undefined
                       }}
                     >
                       <span className='drawer-icon'>{link.icon}</span>
@@ -598,13 +597,11 @@ export default function MainHeader () {
                     </a>
                   ) : (
                     <Link
-                      to={link.path}
+                      to={Link.path}
                       className='drawer-link'
                       style={{
                         color:
-                          location.pathname === link.path
-                            ? '#61CE70'
-                            : undefined
+                          router.pathname === Link.path ? '#61CE70' : undefined
                       }}
                     >
                       <span className='drawer-icon'>{link.icon}</span>

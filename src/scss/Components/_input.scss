@@ -1,3 +1,5 @@
+@use '../Base/variable';
+
 .input {
   width: 300px;
   height: 55px;
@@ -5,12 +7,12 @@
   border-radius: 0.3rem;
   outline: none;
   margin: 0.5rem 0;
-  border: 1px solid $color-0094c6;
-  background: $color-d9dfe2;
+  border: 1px solid variable.$color-0094c6;
+  background: variable.$color-d9dfe2;
   &::-webkit-input-placeholder {
-    font-weight: $weight-medium;
+    font-weight: variable.$weight-medium;
     font-size: 13px;
     text-transform: capitalize;
-    color: $color-000000;
+    color: variable.$color-000000;
   }
 }

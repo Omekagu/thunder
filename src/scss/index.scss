@@ -1,29 +1,25 @@
-// Base
+// ✅ Move all @use to the top before anything else
+@use './Components/button';
+@use './Components/sidebar';
+@use './Components/input';
+@use './Components/header';
+@use './Components/hoteldashboard';
+@use './Components/userTable';
+@use './Components/bookingOrder';
+@use './Components/tableContainer';
+@use './Components/analytics';
+@use './Components/PropertyList';
+@use './Components/UserManagement';
+@use './Components/customerSchedule';
+@use './page/login';
+@use './page/dashboard';
+@use './User/userDashboard';
+@use './User/investmentHistory';
+@use './User/deposit';
+@use './User/withdrawalPage';
+@use './User/referralPage';
+@use './User/components/investplanComponent';
+
+// 🔴 Move all @import *after* @use
 @import './Base/base';
 @import './Base/variable';
-
-// component
-@import './Components/button';
-@import './Components/sidebar';
-@import './Components/input';
-@import './Components/header';
-@import './Components/hoteldashboard';
-@import './Components/userTable';
-@import './Components/bookingOrder';
-@import './Components/tableContainer';
-@import './Components/analytics';
-@import './Components/PropertyList';
-@import './Components/UserManagement';
-@import './Components/customerSchedule';
-
-// Pages
-@import './page/login';
-@import './page/dashboard';
-
-// Users
-@import './User/userDashboard';
-@import './User/investmentHistory';
-@import './User/deposit';
-@import './User/withdrawalPage';
-@import './User/referralPage';
-@import './User/components/investplanComponent';

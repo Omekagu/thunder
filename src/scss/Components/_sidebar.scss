@@ -1,9 +1,11 @@
+@use '../Base/variable';
+
 .sidebar {
   text-align: center;
   padding-top: 10px;
   width: 250px;
   min-width: 200px;
-  background-color: $color-010461;
+  background-color: variable.$color-010461;
   position: fixed;
   left: 0;
   top: 0;
@@ -13,7 +15,7 @@
   overflow-x: hidden;
 
   &__logo {
-    background-color: $color-010461;
+    background-color: variable.$color-010461;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -59,7 +61,7 @@
 
   &__subhead {
     font-size: 13px;
-    color: $color-f5f8f9;
+    color: variable.$color-f5f8f9;
     font-weight: 800;
     text-transform: uppercase;
     text-align: start;
@@ -116,7 +118,7 @@
     }
 
     &.active {
-      background-color: $color-000000;
+      background-color: variable.$color-000000;
       border-radius: 10px;
       color: white !important;
     }
@@ -163,7 +165,7 @@
     }
 
     &.active {
-      background-color: $color-000000;
+      background-color: variable.$color-000000;
       border-radius: 8px;
       color: white !important;
     }
@@ -240,7 +242,7 @@
     min-width: 120px;
     z-index: 1200;
     transform: translateX(-100%);
-    background-color: $color-010461;
+    background-color: variable.$color-010461;
     transition: transform 0.3s, width 0.3s;
 
     &.open {

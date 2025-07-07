@@ -49,8 +49,7 @@ export default function Home () {
   return (
     <div>
       <Login />
-      <ManageRole />
-      <ManageHotels />
+      <UserDashboard />
       <Schedule />
       <Tickets />
       <ManageReferral />
@@ -78,7 +77,6 @@ export default function Home () {
       <Analytics />
       <DashBoard />
       <Bookings />
-      <UserDashboard />
       <InvestmentPlan />
       <DepositPage />
       <WithdrawalPage />

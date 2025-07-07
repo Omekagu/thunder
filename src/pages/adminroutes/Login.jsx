@@ -15,7 +15,7 @@ const Login = () => {
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (token) {
-      router.push('/src/pages/UserRoutes/Dashboard') // Adjust the path as needed
+      router.push('/user/dashboard')
     }
   }, [router])
 
