@@ -1,0 +1,149 @@
+.investment-history {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background: #139925;
+  border-radius: 18px;
+  box-shadow: 0 4px 18px #0002;
+  padding: 18px 16px 10px 16px;
+  margin: 12px;
+
+  .history-header {
+    font-size: 0.9rem;
+    font-weight: 900;
+    color: #000;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  .history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .history-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    background: #0d2f0d;
+    border-radius: 12px;
+    padding: 11px 13px;
+    box-shadow: 0 2px 9px #0e021522;
+    transition: background 0.18s;
+    &:hover {
+      background: #2f2860;
+    }
+  }
+
+  .history-icon {
+    min-width: 40px;
+    min-height: 40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: #b3b3b3;
+    color: #101010;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.34rem;
+    font-weight: 700;
+    margin-top: 2px;
+    box-shadow: 0 1px 6px #0002;
+  }
+
+  .history-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+
+    .history-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2px;
+    }
+
+    .history-type {
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: #fff;
+      text-transform: capitalize;
+      letter-spacing: 0.1px;
+    }
+
+    .history-amount {
+      font-size: 0.8rem;
+      font-weight: 700;
+      &.positive {
+        color: #47fd65;
+      }
+      &.negative {
+        color: #ff637d;
+      }
+    }
+
+    .history-date {
+      font-size: 0.75rem;
+      color: #b3b3b3;
+      font-weight: 900;
+    }
+
+    .history-status {
+      font-size: 0.7rem;
+      font-weight: 600;
+      border-radius: 7px;
+      padding: 2px 8px;
+      &.completed {
+        // background: #232;
+        color: #35e465;
+      }
+      &.pending {
+        // background: #2f2a12;
+        color: #ffd700;
+      }
+      &.failed {
+        // background: #2e1313;
+        color: #ff637d;
+      }
+    }
+
+    .history-desc {
+      margin-top: 2px;
+      font-size: 0.8rem;
+      color: #e5e5e5;
+      opacity: 0.7;
+      letter-spacing: 0.1rem;
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .investment-history {
+    padding: 12px 4px 5px 8px;
+    .history-header {
+      font-size: 1.03rem;
+    }
+    .history-item {
+      padding: 8px 7px;
+      .history-icon {
+        min-width: 33px;
+        min-height: 33px;
+        width: 33px;
+        height: 33px;
+        font-size: 1.05rem;
+      }
+      .history-type,
+      .history-amount {
+        font-size: 0.95rem;
+      }
+      .history-date,
+      .history-status,
+      .history-desc {
+        font-size: 0.87rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,208 @@
+.investmentplans {
+  padding: '1rem';
+  background: #61ce70;
+}
+.investmentplans-section {
+  padding: 4rem 1.5rem;
+  background: #61ce70;
+  color: #f5f7fa;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  backdrop-filter: blur(3px);
+  min-height: 100vh;
+}
+
+.investmentplans-header {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #fff;
+    text-shadow: 0 4px 24px #00c0e4bb;
+    background: linear-gradient(90deg, #61ce70 10%, #61ce70 60%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  p {
+    color: #b0b8c4;
+    font-size: 1rem;
+    max-width: 650px;
+    margin: 0 auto 2rem;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+  }
+}
+
+.investmentplans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 2rem auto 0;
+}
+
+.investmentplan-card {
+  position: relative;
+  overflow: hidden;
+  background: rgba(20, 21, 35, 0.56);
+  border-radius: 18px;
+  padding: 2.4rem 1.6rem 2.2rem 1.6rem;
+  border: 1.5px solid #383c57cc;
+  box-shadow: 0 8px 32px 0 rgba(122, 95, 255, 0.12), 0 2px 8px #61ce7022;
+  z-index: 1;
+  transition: transform 0.32s cubic-bezier(0.32, 0.76, 0.41, 1.12),
+    box-shadow 0.3s;
+  cursor: pointer;
+  animation: fadeInCard 0.8s cubic-bezier(0.27, 0.97, 0.48, 0.98);
+
+  &:hover,
+  &:focus-within {
+    transform: translateY(-8px) scale(1.025);
+    box-shadow: 0 14px 40px rgba(0, 212, 255, 0.19), 0 2px 16px #61ce7022;
+    border-color: #61ce70;
+    .plan-glass-bg {
+      opacity: 0.22;
+      filter: blur(14px);
+    }
+    .plan-btn {
+      background: linear-gradient(90deg, #61ce70 0%, #61ce70 100%);
+      color: #fff;
+      letter-spacing: 0.04em;
+      transform: scale(1.04);
+    }
+  }
+
+  h3 {
+    color: #61ce70;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.85rem;
+    text-shadow: 0 2px 18px #61ce7050;
+    letter-spacing: 0.02em;
+    position: relative;
+    z-index: 2;
+  }
+  .plan-profit {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 1.2rem;
+    color: #fff;
+    background: linear-gradient(90deg, #61ce70 0%, #61ce70 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    z-index: 2;
+    .plan-profit-label {
+      font-size: 1rem;
+      color: #bbb;
+      margin-left: 0.34rem;
+      font-weight: 500;
+      background: none;
+      -webkit-text-fill-color: initial;
+      text-shadow: none;
+    }
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.5rem 0;
+    color: #cbd4e1;
+    font-size: 1.02rem;
+    font-weight: 500;
+    li {
+      margin-bottom: 0.55rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      span {
+        color: #8a99b8;
+        font-weight: 500;
+        min-width: 90px;
+        display: inline-block;
+      }
+      strong {
+        color: #00e0ff;
+        font-weight: 900;
+        font-size: 1.58em;
+      }
+    }
+  }
+  .plan-btn {
+    margin-top: 1.7rem;
+    width: 100%;
+    padding: 13px 0;
+    background: linear-gradient(90deg, #61ce70 0%, #61ce70 100%);
+    color: #181818;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    box-shadow: 0 2px 12px #61ce7020;
+    transition: background 0.2s, color 0.2s, transform 0.22s;
+    outline: none;
+    &:hover,
+    &:focus {
+      background: linear-gradient(90deg, #61ce70 0%, #61ce70 100%);
+      color: #fff;
+      transform: scale(1.045);
+      box-shadow: 0 4px 24px #61ce7040;
+    }
+    &:active {
+      color: #181818;
+      background: #61ce70;
+      transform: scale(0.97);
+    }
+  }
+
+  .plan-glass-bg {
+    pointer-events: none;
+    position: absolute;
+    z-index: 0;
+    top: -80px;
+    left: -80px;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle at 60% 60%,
+      #61ce7090 0%,
+      #61ce7033 80%,
+      transparent 100%
+    );
+    opacity: 0.13;
+    filter: blur(8px);
+    transition: opacity 0.36s, filter 0.25s;
+  }
+}
+
+@keyframes fadeInCard {
+  0% {
+    opacity: 0;
+    transform: scale(0.94) translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@media (max-width: 700px) {
+  .investmentplans-section {
+    padding: 2.5rem 0.5rem;
+  }
+  .investmentplans-header h2 {
+    font-size: 2rem;
+  }
+  .investmentplans-grid {
+    gap: 1.25rem;
+  }
+  .investmentplan-card {
+    padding: 1.4rem 1rem 1.3rem 1rem;
+  }
+}

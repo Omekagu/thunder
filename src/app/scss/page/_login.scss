@@ -1,0 +1,154 @@
+.login {
+  background-image: url('https://images.pexels.com/photos/936722/pexels-photo-936722.jpeg');
+  background-position: center;
+  background-size: cover;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  &__container {
+    width: 100%;
+    max-width: 400px;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    padding: 2.5rem 2rem 2rem 2rem;
+    background: rgba(245, 248, 249, 0.96);
+    box-sizing: border-box;
+    box-shadow: 0 6px 32px 0 rgba(0, 0, 0, 0.12);
+
+    @media (max-width: 768px) {
+      max-width: 92vw;
+      padding: 2rem 1.2rem 1.4rem 1.2rem;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 480px) {
+      max-width: 99vw;
+      padding: 1.25rem 0.7rem 1rem 0.7rem;
+      border-radius: 10px;
+    }
+  }
+
+  &__img {
+    width: 92px;
+    margin-bottom: 0.7rem;
+
+    @media (max-width: 768px) {
+      width: 67px;
+    }
+
+    @media (max-width: 480px) {
+      width: 55px;
+    }
+  }
+
+  &__head {
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 0.5rem 0 1.2rem 0;
+    color: #232323;
+    text-align: center;
+
+    @media (max-width: 768px) {
+      font-size: 1.35rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.05rem;
+    }
+  }
+
+  &__form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    margin-top: 0.5rem;
+  }
+
+  &__forgot-text {
+    font-size: 1rem;
+    text-transform: capitalize;
+    color: #61ce70;
+    cursor: pointer;
+    align-self: flex-end;
+    margin-bottom: 1rem;
+    margin-top: -0.6rem;
+    transition: color 0.2s;
+    &:hover {
+      color: #6f5fbf;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 0.96rem;
+      margin-bottom: 0.8rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 0.9rem;
+      margin-bottom: 0.7rem;
+    }
+  }
+}
+
+.custom-login-button {
+  width: 100%;
+  padding: 13px 0;
+  font-size: 1.09rem;
+  color: #fff;
+  background-color: #61ce70; /* Button color */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 0.2rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: background 0.3s ease-in-out, box-shadow 0.2s;
+
+  &:hover {
+    background-color: #6f5fbf;
+    box-shadow: 0 3px 10px 0 rgba(166, 57, 50, 0.08);
+  }
+
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    pointer-events: none;
+    color: #eee;
+  }
+}
+
+/* Make Input field responsive (if Input component not already styled) */
+input[type='text'],
+input[type='password'],
+input[type='email'] {
+  width: 100%;
+  max-width: 100%;
+  padding: 12px 14px;
+  font-size: 1rem;
+  border: 1.2px solid #e1e3e6;
+  border-radius: 6px;
+  background: #fff;
+  outline: none;
+  transition: border 0.2s;
+  margin-bottom: 0;
+
+  &:focus {
+    border-color: #6f5fbf;
+    background: #f8f6f7;
+  }
+}
+
+/* Make Toast notification responsive */
+.Toastify__toast {
+  font-size: 1rem;
+  @media (max-width: 480px) {
+    font-size: 0.94rem;
+  }
+}
