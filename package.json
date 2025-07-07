@@ -17,6 +17,7 @@
     "@mui/system": "^5.17.1",
     "@mui/x-charts": "^8.5.0",
     "@mui/x-data-grid": "^5.17.26",
+    "@netlify/next": "^1.4.9",
     "@walletconnect/web3-provider": "^1.8.0",
     "axios": "^1.10.0",
     "dayjs": "^1.11.13",

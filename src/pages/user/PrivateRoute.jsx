@@ -12,7 +12,7 @@ const PrivateRoute = ({ children }) => {
       const token = localStorage.getItem('token')
 
       if (!token) {
-        router.push('/login')
+        router.push('/user/Login')
       } else {
         setAuthorized(true)
       }
