@@ -1,4 +1,4 @@
-import Login from './admin/Login'
+import Login from './user/Login'
 
 export default function Home () {
   return (
