@@ -27,7 +27,7 @@ ChartJS.register(
   Filler
 )
 
-export const DashboardChart = () => {
+export default function DashboardChart = () => {
   // Professional Line Chart Data
   const lineData = {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],

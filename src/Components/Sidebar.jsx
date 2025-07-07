@@ -71,14 +71,14 @@ const Sidebar = ({ isOpen, onClose }) => {
 
   const links = [
     {
-      path: '/admin/dashboard',
+      path: '/admin/UserDashboard',
       name: 'Dashboard',
       icon: <Home />,
       category: 'HOME',
       dropdown: true,
       submenu: [
-        { path: '/admin/dashboard', name: 'Overview' },
-        { path: '/dashboard/analytics', name: 'Analytics' }
+        { path: '/admin/UserDashboard', name: 'Overview' }
+        // { path: '/admin/UserDashboard', name: 'Analytics' }
       ]
     },
     {

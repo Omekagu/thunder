@@ -71,7 +71,7 @@ const typeToColor = {
   Dividend: '#ffd700'
 }
 
-export const InvestmentHistory = () => (
+export default function InvestmentHistory = () => (
   <section className='investment-history'>
     <div className='history-header'>Transaction History</div>
     <div className='history-list'>

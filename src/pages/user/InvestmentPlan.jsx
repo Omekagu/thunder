@@ -1,6 +1,6 @@
 import React from 'react'
-import InvestmentPlanComponent from '../../Components/User/InvestmentplanComponent'
-import MainHeader from '../../Components/User/MainHeader'
+import InvestmentPlanComponent from '../../../Components/User/InvestmentplanComponent'
+import MainHeader from '../../../Components/User/MainHeader'
 
 export default function InvestmentPlan () {
   return (

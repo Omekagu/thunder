@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import Sidebar from '../../Components/Sidebar'
-import Header from '../../Components/Header'
-import AnalyticsDashboard from '../../Components/AnalyticsDashboard'
+import Sidebar from '../../../Components/Sidebar'
+import Header from '../../../Components/Header'
+import AnalyticsDashboard from '../../../Components/AnalyticsDashboard'
 
 const Analytics = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)

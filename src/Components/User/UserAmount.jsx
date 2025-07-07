@@ -2,7 +2,7 @@ import React from 'react'
 // import { RiDownload2Line, RiUpload2Line } from 'react-icons/ri'
 import Link from 'next/link'
 
-export const UserAmount = () => {
+export default function UserAmount = () => {
   return (
     <section className='user-amount-card'>
       <div className='user-amount-header'>

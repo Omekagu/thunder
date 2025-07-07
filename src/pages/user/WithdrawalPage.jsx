@@ -9,7 +9,7 @@ import {
   FaCoins
 } from 'react-icons/fa'
 import { SiSolana, SiPolygon } from 'react-icons/si'
-import MainHeader from '../../Components/User/MainHeader'
+import MainHeader from '../../../Components/User/MainHeader'
 
 const CRYPTO_OPTIONS = [
   {

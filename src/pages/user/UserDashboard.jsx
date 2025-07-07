@@ -1,8 +1,8 @@
-import { UserAmount } from '../../Components/User/UserAmount'
-import InvestmentHistory from '../../Components/User/InvestmentHistory'
+import { UserAmount } from '../../../Components/User/UserAmount'
+import InvestmentHistory from '../../../Components/User/InvestmentHistory'
 import MainHeader from '../../Components/User/MainHeader'
 
-export const UserDashboard = () => (
+export default function UserDashboard = () => (
   <div className='dashboard-container'>
     <MainHeader />
 
