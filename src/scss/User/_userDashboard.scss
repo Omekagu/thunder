@@ -17,12 +17,12 @@
 
 .dashboard-container {
   width: 100vw;
-  max-width: 430px;
+  max-width: 100%;
   margin: 48px 10px 32px 10px;
   background: #61ce70;
   border-radius: 28px;
   box-shadow: 0 6px 40px #0004, 0 2px 14px #61ce7022;
-  padding: 0;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -118,12 +118,12 @@
   align-self: center;
   background: linear-gradient(135deg, #232038 60%, #2f365c 100%);
   border-radius: 20px;
-  margin: 0 0 26px 0;
+  margin: 10px;
   padding: 26px 22px 0 22px;
   box-shadow: 0 4px 18px #0002, 0 2px 12px #61ce7022;
   position: relative;
   overflow: hidden;
-  min-width: 400px;
+  width: 100%;
   .user-amount-header {
     display: flex;
     align-items: center;
@@ -531,7 +531,7 @@
   .user-amount-card {
     padding: 15px 6px 0 6px;
     border-radius: 16px;
-    max-width: 98vw;
+
     .user-balance-amount {
       font-size: 1.5rem;
     }
