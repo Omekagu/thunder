@@ -203,7 +203,7 @@ export default function MainHeader () {
       links: [
         { icon: <FaCreditCard />, label: 'Card', path: '/user/CardPage' },
         { icon: <FaHistory />, label: 'History', path: '/user/HistoryPage' },
-        { icon: <FaIdBadge />, label: 'KYC', path: '/user/kycPage' },
+        { icon: <FaIdBadge />, label: 'KYC', path: '/user/KycPage' },
         { icon: <FaKey />, label: 'Password', path: '/user/PasswordPage' },
         {
           icon: <FaSignOutAlt />,

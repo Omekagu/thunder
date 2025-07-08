@@ -1,0 +1,190 @@
+.kyc-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f6fa;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.kyc-container {
+  background: #fff;
+  width: 100%;
+  max-width: 460px;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+}
+
+.kyc-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.kyc__icon-container {
+  background: #edeaff;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.kyc__title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #2b2b2b;
+  margin-bottom: 0.5rem;
+}
+
+.kyc__subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+  max-width: 300px;
+}
+
+.kyc__options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.kyc__option {
+  background: #f0f0f0;
+  padding: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+  text-align: left;
+  position: relative;
+
+  &:hover {
+    background: #e0e0e0;
+    border-color: #6f5fbf;
+  }
+
+  input[type='file'] {
+    display: none;
+  }
+}
+
+.kyc__footer-link {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #6f5fbf;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.kyc__buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+
+  button {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #6f5fbf;
+    color: #fff;
+
+    &:hover {
+      background-color: #5849c6;
+    }
+  }
+}
+
+/* Face Capture Camera */
+.kyc--camera {
+  position: relative;
+  height: 500px;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+}
+
+.kyc__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kyc__instructions {
+  position: absolute;
+  bottom: 80px;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+
+  p {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  span {
+    font-size: 0.95rem;
+  }
+}
+
+.kyc__capture-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  width: 60px;
+  height: 60px;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+}
+.kyc__preview {
+  margin-top: 1rem;
+  text-align: center;
+
+  p {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+
+  .kyc__preview-img {
+    max-width: 100%;
+    max-height: 220px;
+    border-radius: 8px;
+    border: 1.5px dashed #ccc;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    object-fit: contain;
+  }
+}
+
+.kyc__confirmation-icon {
+  font-size: 3rem;
+  margin-top: 1.5rem;
+  color: #61ce70;
+  animation: pulse 1.4s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}

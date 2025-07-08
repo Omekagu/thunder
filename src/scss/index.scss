@@ -23,6 +23,7 @@
 @use './User/applyLoanPage';
 @use './User/loansHistory';
 @use './User/loansPage';
+@use './User/kycpage';
 @use './User/components/investplanComponent';
 
 // 🔴 Move all @import *after* @use
