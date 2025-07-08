@@ -24,6 +24,7 @@
 @use './User/loansHistory';
 @use './User/loansPage';
 @use './User/kycpage';
+@use './User/profilePage';
 @use './User/components/investplanComponent';
 
 // 🔴 Move all @import *after* @use

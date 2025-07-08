@@ -1,14 +1,19 @@
-import type { NextConfig } from 'next'
-
-const nextConfig: NextConfig = {
-  /* config options here */
-}
-
-export default nextConfig
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   images: {
     remotePatterns: [
-      new URL('https://i.postimg.cc/NjS69Ysh/thunder-Xtorm-logo.png')
+      {
+        protocol: 'https',
+        hostname: 'i.postimg.cc',
+        pathname: '/NjS69Ysh/thunder-Xtorm-logo.png'
+      },
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+        pathname: '/**'
+      }
     ]
   }
 }
+
+module.exports = nextConfig

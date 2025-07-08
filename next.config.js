@@ -1,7 +1,22 @@
-// next.config.js
 const webpack = require('webpack')
 
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'i.postimg.cc',
+        pathname: '/**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+        pathname: '/**'
+      }
+    ]
+  },
+
   webpack: config => {
     config.resolve.fallback = {
       ...config.resolve.fallback,
@@ -27,3 +42,5 @@ module.exports = {
     return config
   }
 }
+
+module.exports = nextConfig
