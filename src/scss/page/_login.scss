@@ -1,165 +1,147 @@
 .login {
+  position: relative;
   background-image: url('https://images.pexels.com/photos/936722/pexels-photo-936722.jpeg');
   background-position: center;
   background-size: cover;
-  height: 100vh;
+  min-height: 150vh;
   min-width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: scroll;
-  scroll-behavior: smooth;
-  scrollbar-width: thin;
-  .custom-select {
-    padding: 12px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    width: 100%;
-    margin-bottom: 15px;
-    font-size: 15px;
-    background-color: #fff;
+  overflow: hidden;
+  scroll-behavior: none;
+  scrollbar-width: none;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 0;
   }
 
-  &__container {
+  .login__container {
+    position: relative;
+    z-index: 1;
     width: 100%;
-    max-width: 400px;
-    min-width: 280px;
+    max-width: 420px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 12px;
-    padding: 2.5rem 2rem 2rem 2rem;
-    background: rgba(245, 248, 249, 0.96);
-    box-sizing: border-box;
-    box-shadow: 0 6px 32px 0 rgba(0, 0, 0, 0.12);
 
     @media (max-width: 768px) {
-      max-width: 92vw;
-      padding: 2rem 1.2rem 1.4rem 1.2rem;
-      border-radius: 10px;
-    }
-
-    @media (max-width: 480px) {
-      max-width: 99vw;
-      padding: 1.25rem 0.7rem 1rem 0.7rem;
-      border-radius: 10px;
+      padding: 2rem 1.2rem;
     }
   }
 
-  &__img {
-    width: 92px;
-    margin-bottom: 0.7rem;
-
-    @media (max-width: 768px) {
-      width: 67px;
-    }
-
-    @media (max-width: 480px) {
-      width: 55px;
-    }
+  .login__img {
+    width: 75px;
+    margin-bottom: 1rem;
   }
 
-  &__head {
-    font-size: 2rem;
-    font-weight: 500;
-    margin: 0.5rem 0 1.2rem 0;
-    color: #232323;
+  .login__head {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #222;
     text-align: center;
-
-    @media (max-width: 768px) {
-      font-size: 1.35rem;
-    }
-
-    @media (max-width: 480px) {
-      font-size: 1.05rem;
-    }
+    margin-bottom: 1.2rem;
   }
 
-  &__form {
+  .login__form {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1.1rem;
-    margin-top: 0.5rem;
+    gap: 1rem;
   }
 
-  &__forgot-text {
-    font-size: 1rem;
-    text-transform: capitalize;
-    color: #61ce70;
-    cursor: pointer;
-    align-self: flex-end;
-    margin-bottom: 1rem;
-    margin-top: -0.6rem;
-    transition: color 0.2s;
-    &:hover {
-      color: #6f5fbf;
-    }
+  .form-group-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+  }
 
-    @media (max-width: 768px) {
-      font-size: 0.96rem;
-      margin-bottom: 0.8rem;
-    }
+  .custom-select {
+    flex: 1;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    background-color: #fff;
+    transition: border 0.2s;
 
-    @media (max-width: 480px) {
-      font-size: 0.9rem;
-      margin-bottom: 0.7rem;
+    &:focus {
+      border-color: #6f5fbf;
+      outline: none;
     }
+  }
+
+  .gender-toggle {
+    display: flex;
+    gap: 10px;
+
+    button {
+      flex: 1;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background: #fff;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &.active {
+        background-color: #6f5fbf;
+        color: #fff;
+        border-color: #6f5fbf;
+      }
+    }
+  }
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='tel'],
+input[type='date'] {
+  width: 100%;
+  padding: 12px;
+  border: 1.2px solid #e1e3e6;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #fff;
+  transition: all 0.3s ease-in-out;
+
+  &:focus {
+    border-color: #6f5fbf;
+    background: #f8f6ff;
+    box-shadow: 0 0 0 3px rgba(111, 95, 191, 0.1);
   }
 }
 
 .custom-login-button {
   width: 100%;
-  padding: 13px 0;
-  font-size: 1.09rem;
+  padding: 13px;
+  font-size: 1.05rem;
   color: #fff;
-  background-color: #61ce70; /* Button color */
+  background-color: #61ce70;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  margin-top: 0.2rem;
   font-weight: 600;
-  letter-spacing: 0.02em;
-  transition: background 0.3s ease-in-out, box-shadow 0.2s;
+  transition: background 0.3s;
 
   &:hover {
     background-color: #6f5fbf;
-    box-shadow: 0 3px 10px 0 rgba(166, 57, 50, 0.08);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
   }
 
   &:disabled {
     background-color: #ccc;
     cursor: not-allowed;
-    pointer-events: none;
-    color: #eee;
-  }
-}
-
-/* Make Input field responsive (if Input component not already styled) */
-input[type='text'],
-input[type='password'],
-input[type='email'] {
-  width: 100%;
-  max-width: 100%;
-  padding: 12px 14px;
-  font-size: 1rem;
-  border: 1.2px solid #e1e3e6;
-  border-radius: 6px;
-  background: #fff;
-  outline: none;
-  transition: border 0.2s;
-  margin-bottom: 0;
-
-  &:focus {
-    border-color: #6f5fbf;
-    background: #f8f6f7;
-  }
-}
-
-/* Make Toast notification responsive */
-.Toastify__toast {
-  font-size: 1rem;
-  @media (max-width: 480px) {
-    font-size: 0.94rem;
   }
 }
