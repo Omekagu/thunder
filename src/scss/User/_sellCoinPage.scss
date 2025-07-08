@@ -1,20 +1,14 @@
-$bg: #f5f6fa;
-$panel: #ffffff;
-$primary: #0066ff;
-$secondary: #888;
-$success: #28a745;
-$text: #333;
-$border: #ddd;
+@use '../Base/variable';
 
 .sell-container {
-  background: $bg;
+  background: variable.$bg;
   min-height: 100vh;
   padding: 2rem 0;
   display: flex;
   justify-content: center;
 }
 .sell-panel {
-  background: $panel;
+  background: variable.$panel;
   border-radius: 10px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
   width: 100%;
@@ -25,7 +19,7 @@ $border: #ddd;
 }
 .sell-title {
   font-size: 1.75rem;
-  color: $text;
+  color: variable.$text;
   text-align: center;
   margin-bottom: 1.5rem;
 }
@@ -38,11 +32,11 @@ $border: #ddd;
   flex: 1;
   text-align: center;
   font-size: 0.9rem;
-  color: $secondary;
+  color: variable.$secondary;
   &.active {
-    color: $primary;
+    color: variable.$primary;
     font-weight: bold;
-    border-bottom: 2px solid $primary;
+    border-bottom: 2px solid variable.$primary;
     padding-bottom: 0.25rem;
   }
 }
@@ -53,26 +47,26 @@ $border: #ddd;
 }
 .form-section label {
   margin-bottom: 0.5rem;
-  color: $text;
+  color: variable.$text;
   font-weight: 500;
 }
 .form-section select,
 .form-section input {
   padding: 0.75rem;
   margin-bottom: 1rem;
-  border: 1px solid $border;
+  border: 1px solid variable.$border;
   border-radius: 6px;
   font-size: 1rem;
   &:focus {
     outline: none;
-    border-color: $primary;
+    border-color: variable.$primary;
   }
 }
 .info-row {
   display: flex;
   justify-content: space-between;
   margin: 0.5rem 0;
-  color: $text;
+  color: variable.$text;
 }
 .actions {
   display: flex;
@@ -91,16 +85,16 @@ $border: #ddd;
   }
 }
 .primary {
-  background: $primary;
+  background: variable.$primary;
   color: white;
 }
 .secondary {
   background: transparent;
-  color: $text;
-  border: 1px solid $border;
+  color: variable.$text;
+  border: 1px solid variable.$border;
 }
 .success {
-  background: $success;
+  background: variable.$success;
   color: white;
 }
 

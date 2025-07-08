@@ -1,15 +1,11 @@
 // File: pages/user/BuyCoinPage.scss
-$primary: #1a73e8;
-$secondary: #f1f3f4;
-$success: #34a853;
-$dark: #202124;
-$danger: #ea4335;
+@use '../Base/variable';
 
 .wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: $secondary;
+  background-color: #f1f3f4;
 }
 .card {
   flex: 1;
@@ -24,7 +20,7 @@ $danger: #ea4335;
 }
 .title {
   font-size: 2rem;
-  color: $dark;
+  color: variable.$dark;
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -35,7 +31,7 @@ $danger: #ea4335;
 }
 .heading {
   font-size: 1.5rem;
-  color: $dark;
+  color: variable.$dark;
   margin-bottom: 1.25rem;
 }
 .field {
@@ -45,7 +41,7 @@ $danger: #ea4335;
 }
 .label {
   font-weight: 600;
-  color: $dark;
+  color: variable.$dark;
   margin-bottom: 0.5rem;
 }
 .select,
@@ -57,7 +53,7 @@ $danger: #ea4335;
   font-size: 1rem;
   transition: border-color 0.2s;
   &:focus {
-    border-color: $primary;
+    border-color: variable.$primary;
     outline: none;
   }
 }
@@ -71,7 +67,7 @@ $danger: #ea4335;
   display: flex;
   align-items: center;
   font-size: 1rem;
-  color: $dark;
+  color: variable.$dark;
 }
 .radio-input {
   margin-right: 0.5rem;
@@ -86,7 +82,7 @@ $danger: #ea4335;
   width: 30%;
 }
 .button-primary {
-  background-color: $primary;
+  background-color: #34a853;
   color: white;
   border: none;
   padding: 0.85rem 1rem;
@@ -95,12 +91,12 @@ $danger: #ea4335;
   font-size: 1rem;
   transition: background 0.2s;
   &:hover {
-    background: darken($primary, 10%);
+    background: #34a853;
   }
 }
 .button-secondary {
   background-color: transparent;
-  color: $dark;
+  color: #888;
   border: 1px solid #ccc;
   padding: 0.75rem 1rem;
   border-radius: 8px;
@@ -109,7 +105,7 @@ $danger: #ea4335;
   flex: 1;
 }
 .button-confirm {
-  background-color: $success;
+  background-color: variable.$success;
   color: white;
   border: none;
   padding: 0.85rem 1rem;
@@ -118,7 +114,7 @@ $danger: #ea4335;
   font-size: 1rem;
   transition: background 0.2s;
   &:hover {
-    background: darken($success, 10%);
+    background: #2b5d38;
   }
 }
 
