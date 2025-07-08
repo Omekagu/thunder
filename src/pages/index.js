@@ -74,8 +74,8 @@ export default function Home () {
           // so='https://i.postimg.cc/NjS69Ysh/thunder-Xtorm-logo.png'
           alt='logo'
           className='login__img'
-          width={150}
-          height={150}
+          width={50}
+          height={50}
         />
         <h3 className='login__head'>Login</h3>
 
@@ -105,6 +105,15 @@ export default function Home () {
             {loading ? 'Loading...' : 'Login'}
           </button>
         </form>
+        <p className='register__login-text'>
+          Already have an account?{' '}
+          <span
+            onClick={() => router.push('/user/RegistrationPage')}
+            style={{ color: '#4a90e2', cursor: 'pointer' }}
+          >
+            Register
+          </span>
+        </p>
       </div>
     </div>
   )

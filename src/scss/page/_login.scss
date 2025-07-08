@@ -2,12 +2,23 @@
   background-image: url('https://images.pexels.com/photos/936722/pexels-photo-936722.jpeg');
   background-position: center;
   background-size: cover;
-  min-height: 100vh;
+  height: 100vh;
   min-width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  .custom-select {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 15px;
+    background-color: #fff;
+  }
 
   &__container {
     width: 100%;
