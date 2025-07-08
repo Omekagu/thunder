@@ -13,7 +13,7 @@ export default function UserAmount () {
         />
         <div className='user-greeting-area'>
           <span className='user-greeting'>Good Morning</span>
-          <span className='user-name'>Hi, Omekagu Joseph</span>
+          <span className='user-name'>Hi, Angela Zoey.</span>
         </div>
       </div>
       <hr className='user-divider' />
