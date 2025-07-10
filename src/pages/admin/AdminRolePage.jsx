@@ -1,5 +1,11 @@
 import React from 'react'
+import AdminHeader from '../../Components/Admin/AdminHeader'
 
 export default function AdminRolePage () {
-  return <div>AdminRolePage</div>
+  return (
+    <div>
+      <AdminHeader />
+      AdminRolePage
+    </div>
+  )
 }

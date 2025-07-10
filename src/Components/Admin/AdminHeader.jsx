@@ -198,7 +198,7 @@ export default function AdminHeader () {
         { icon: <FaCreditCard />, label: 'Card', path: '/admin/UsersCardPage' },
         {
           icon: <FaCreditCard />,
-          label: 'Admin Role Management',
+          label: 'App Admin',
           path: '/admin/RoleManagement'
         },
         {

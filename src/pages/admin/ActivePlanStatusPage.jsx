@@ -1,5 +1,12 @@
 import React from 'react'
+import AdminHeader from '../../Components/Admin/AdminHeader'
 
 export default function ActivePlanStatusPage () {
-  return <div>ActivePlanStatusPage</div>
+  return (
+    <div>
+      {' '}
+      <AdminHeader />
+      ActivePlanStatusPage
+    </div>
+  )
 }

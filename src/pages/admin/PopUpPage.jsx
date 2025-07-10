@@ -1,5 +1,11 @@
 import React from 'react'
+import AdminHeader from '../../Components/Admin/AdminHeader'
 
 export default function PopUpPage () {
-  return <div>PopUpPage</div>
+  return (
+    <div>
+      <AdminHeader />
+      PopUpPage
+    </div>
+  )
 }
