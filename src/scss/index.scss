@@ -27,6 +27,10 @@
 @use './User/profilePage';
 @use './User/components/investplanComponent';
 
+// admins scss
+@use './Admin/Components/dashboardSection';
+@use './Admin/Components/revenueCard';
+
 // 🔴 Move all @import *after* @use
 @use './Base/base' as base;
 @use './Base/variable' as variable;

@@ -23,14 +23,14 @@ export default function UserAmount () {
       <div className='user-balance-amount'>$1050.99</div>
       <div className='user-actions-row'>
         <button className='user-action-btn'>
-          <Link href={'/user/deposit'}>
+          <Link href={'/user/DepositPage'}>
             {/* <RiDownload2Line className='action-icon' /> */}
             Deposit
           </Link>
         </button>
         <span className='user-action-divider' />
         <button className='user-action-btn'>
-          <Link href={'/user/withdrawal'}>
+          <Link href={'/user/WithdrawalPage'}>
             {/* <RiUpload2Line className='user-action-icon' /> */}
             Withdraw
           </Link>

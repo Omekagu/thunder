@@ -1,0 +1,43 @@
+.revenue-card {
+  background: linear-gradient(135deg, #a7eb5d, #80d742);
+  padding: 1rem;
+  border-radius: 15px;
+  color: #000;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+      font-size: 1rem;
+      font-weight: 900;
+    }
+
+    .mini-chart {
+      width: 60px;
+      height: 40px;
+    }
+  }
+
+  h2 {
+    margin: 0.5rem 0 0;
+    font-size: 1.1rem;
+  }
+
+  span {
+    font-size: 0.75rem;
+    opacity: 0.85;
+  }
+}
+
+.revenue-cards-container {
+  margin: 0.5rem 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
