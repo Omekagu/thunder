@@ -1,7 +1,4 @@
 .deposit-page {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -234,7 +231,6 @@
       code {
         flex: 1;
         color: #61ce70;
-        font-family: 'JetBrains Mono', 'Menlo', 'Monaco', monospace;
         font-size: 1.09rem;
         word-break: break-all;
       }

@@ -116,7 +116,7 @@ export default function MainHeader () {
         { icon: <FaHome />, label: 'Dashboard', path: '/user/UserDashboard' },
         {
           icon: <FaUser />,
-          label: 'Profile & Security Settings',
+          label: 'Profile Settings',
           path: '/user/Profilepage'
         }
       ]

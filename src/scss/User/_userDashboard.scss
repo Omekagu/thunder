@@ -1,7 +1,4 @@
 .dashboard-background {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
   min-height: 100%;
   width: 100vw;
   background: #61ce70;
@@ -9,7 +6,6 @@
   flex-direction: column;
   align-items: center;
   padding-bottom: 48px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #fff;
   transition: background 0.4s cubic-bezier(0.77, 0, 0.18, 1);
   overflow-x: hidden;
@@ -113,8 +109,6 @@
 
 /* Quick Balance Card */
 .user-amount-card {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   align-self: center;
   background: linear-gradient(135deg, #232038 60%, #2f365c 100%);
   border-radius: 20px;
