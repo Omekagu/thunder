@@ -1,0 +1,102 @@
+// File: styles/KYCDashboard.module.scss
+
+.kyc-dashboard {
+  padding: 2rem;
+  background-color: #f9fafc;
+  min-height: 100vh;
+
+  h5 {
+    margin-bottom: 0.7rem;
+    font-weight: 800;
+    color: #333;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+}
+
+.tableContainer {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  overflow-x: auto;
+  margin: 10px;
+
+  table {
+    width: 100%;
+    min-width: 600px;
+
+    th {
+      background-color: #f1f3f6;
+      font-weight: 600;
+    }
+
+    td,
+    th {
+      padding: 1rem;
+      font-size: 0.95rem;
+    }
+
+    td {
+      vertical-align: middle;
+    }
+  }
+
+  @media (max-width: 768px) {
+    table {
+      min-width: unset;
+    }
+
+    th,
+    td {
+      padding: 0.5rem;
+      font-size: 0.85rem;
+    }
+  }
+}
+
+.modalContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  max-width: 500px;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+
+  h6 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+  }
+
+  .documentImage {
+    width: 100%;
+    margin-top: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+
+  button {
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1.2rem;
+
+    p {
+      font-size: 0.85rem;
+    }
+
+    h6 {
+      font-size: 1rem;
+    }
+  }
+}

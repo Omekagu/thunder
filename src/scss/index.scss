@@ -35,6 +35,7 @@
 @use './Admin/Components/donutChart';
 @use './Admin/Components/gradientLineChart';
 @use './Admin/Components/table';
+@use './Admin/Components/kycManagementComp';
 
 // 🔴 Move all @import *after* @use
 @use './Base/base' as base;
