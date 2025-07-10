@@ -1,5 +1,12 @@
 import React from 'react'
+import AdminHeader from '../../Components/Admin/AdminHeader'
 
 export default function AdminDashboard () {
-  return <div>AdminDashboard</div>
+  return (
+    <div>
+      <AdminHeader />
+
+      <>Admin Dashboard Content Goes Here</>
+    </div>
+  )
 }

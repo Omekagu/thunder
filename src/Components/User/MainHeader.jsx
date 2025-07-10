@@ -114,7 +114,11 @@ export default function MainHeader () {
       header: null,
       links: [
         { icon: <FaHome />, label: 'Dashboard', path: '/user/UserDashboard' },
-        { icon: <FaUser />, label: 'Profile', path: '/user/Profilepage' }
+        {
+          icon: <FaUser />,
+          label: 'Profile & Security Settings',
+          path: '/user/Profilepage'
+        }
       ]
     },
     {
@@ -140,6 +144,11 @@ export default function MainHeader () {
     {
       header: 'Investment Plans',
       links: [
+        {
+          icon: <FaPiggyBank />,
+          label: 'AI Recommendations',
+          path: '/user/InvestmentPlan'
+        },
         {
           icon: <FaPiggyBank />,
           label: 'Plans',
@@ -182,7 +191,7 @@ export default function MainHeader () {
       links: [
         {
           icon: <FaChartLine />,
-          label: 'Referral',
+          label: 'Your Referrals',
           path: '/user/ReferralPage'
         },
         { icon: <FaChartLine />, label: 'Deposit', path: '/user/DepositPage' },
@@ -203,7 +212,12 @@ export default function MainHeader () {
       links: [
         { icon: <FaCreditCard />, label: 'Card', path: '/user/CardPage' },
         { icon: <FaHistory />, label: 'History', path: '/user/HistoryPage' },
-        { icon: <FaIdBadge />, label: 'KYC', path: '/user/KycPage' },
+        {
+          icon: <FaIdBadge />,
+          label: 'KYC Verification',
+          path: '/user/KycPage'
+        },
+        { icon: <FaIdBadge />, label: 'Support Center', path: '/user/KycPage' },
         { icon: <FaKey />, label: 'Password', path: '/user/PasswordPage' },
         {
           icon: <FaSignOutAlt />,
