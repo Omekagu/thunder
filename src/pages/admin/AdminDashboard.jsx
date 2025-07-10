@@ -15,7 +15,7 @@ export default function AdminDashboard () {
           date='Jan 01 - Jan 10'
         />
         <RevenueCard
-          title='Investors Revenue'
+          title='Investment Revenue'
           value={'$4,900,032'}
           date='Jan 01 - Jan 10'
         />

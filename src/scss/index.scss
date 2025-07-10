@@ -29,10 +29,12 @@
 
 // admins scss
 @use './Admin/adminDashboard';
+@use './Admin/adminUsers';
 @use './Admin/Components/dashboardSection';
 @use './Admin/Components/revenueCard';
 @use './Admin/Components/donutChart';
 @use './Admin/Components/gradientLineChart';
+@use './Admin/Components/table';
 
 // 🔴 Move all @import *after* @use
 @use './Base/base' as base;
