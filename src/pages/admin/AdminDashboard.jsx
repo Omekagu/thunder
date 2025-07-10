@@ -1,13 +1,11 @@
 import React from 'react'
 import AdminHeader from '../../Components/Admin/AdminHeader'
-import DashboardSection from '../../Components/Admin/DashboardSection'
 import RevenueCard from '../../Components/Admin/RevenueCard'
 
 export default function AdminDashboard () {
   return (
     <div>
       <AdminHeader />
-      <DashboardSection />
       <div className='revenue-cards-container'>
         <RevenueCard
           title='Total Investors'
