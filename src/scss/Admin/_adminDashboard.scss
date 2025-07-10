@@ -1,0 +1,10 @@
+.admin-dashboard {
+  color: #858585;
+  margin: 20px 10px;
+
+  .charts-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+  }
+}

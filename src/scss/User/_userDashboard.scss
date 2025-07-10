@@ -358,6 +358,7 @@
 /* Drawer and Scrollbar */
 .drawer {
   position: fixed;
+  margin-bottom: 100px;
   top: 0;
   right: -310px;
   width: 260px;
@@ -395,7 +396,7 @@
   .drawer-list {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin-bottom: 100px;
     display: flex;
     flex-direction: column;
     gap: 14px;

@@ -1,0 +1,17 @@
+// components/GradientLineChart.module.scss
+.chartWrapper {
+  max-width: 550%;
+  padding: 1rem;
+  box-sizing: border-box;
+
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .chartWrapper {
+    padding: 2rem;
+  }
+}
