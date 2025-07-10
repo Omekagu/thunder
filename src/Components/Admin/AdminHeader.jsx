@@ -139,21 +139,6 @@ export default function AdminHeader () {
       ]
     },
     {
-      header: 'Privacy',
-      links: [
-        { icon: <FaCreditCard />, label: 'Card', path: '/admin/CardPage' },
-        { icon: <FaHistory />, label: 'History', path: '/admin/HistoryPage' },
-        { icon: <FaIdBadge />, label: 'KYC', path: '/admin/KycPage' },
-        { icon: <FaKey />, label: 'Password', path: '/admin/PasswordPage' },
-        {
-          icon: <FaSignOutAlt />,
-          label: 'Logout',
-          path: '/logout',
-          action: 'logout'
-        }
-      ]
-    },
-    {
       header: 'Notifications',
       links: [
         {
@@ -178,9 +163,21 @@ export default function AdminHeader () {
         },
         {
           icon: <FaCreditCard />,
-          label: 'Send Pop up Notification',
+          label: 'Pop up',
           path: '/admin/CardPage'
         }
+      ]
+    },
+    {
+      header: 'Payment Gateway',
+      links: [
+        {
+          icon: <FaCreditCard />,
+          label: 'Cryptocurrency',
+          path: '/admin/CardPage'
+        },
+        { icon: <FaHistory />, label: 'Transfers', path: '/admin/HistoryPage' },
+        { icon: <FaIdBadge />, label: 'Bank Card', path: '/admin/KycPage' }
       ]
     },
     {
@@ -189,7 +186,12 @@ export default function AdminHeader () {
         { icon: <FaCreditCard />, label: 'Card', path: '/admin/CardPage' },
         { icon: <FaHistory />, label: 'History', path: '/admin/HistoryPage' },
         { icon: <FaIdBadge />, label: 'KYC', path: '/admin/KycPage' },
-        { icon: <FaKey />, label: 'Password', path: '/admin/PasswordPage' },
+        { icon: <FaKey />, label: 'Password', path: '/admin/PasswordPage' }
+      ]
+    },
+    {
+      header: 'Account Settings',
+      links: [
         {
           icon: <FaSignOutAlt />,
           label: 'Logout',
