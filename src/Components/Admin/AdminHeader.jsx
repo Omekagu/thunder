@@ -41,10 +41,10 @@ export default function AdminHeader () {
         {
           icon: <FaHome />,
           label: 'Users',
-          path: '/admin/UserDashboard'
+          path: '/admin/Users'
         },
-        { icon: <FaUser />, label: 'Manage Users', path: '/admin/Profilepage' },
-        { icon: <FaUser />, label: 'KYC control', path: '/admin/Profilepage' }
+        { icon: <FaUser />, label: 'Manage Users', path: '/admin/ManageUsers' },
+        { icon: <FaUser />, label: 'KYC control', path: '/admin/KycManagement' }
       ]
     },
     {
@@ -53,27 +53,27 @@ export default function AdminHeader () {
         {
           icon: <FaPiggyBank />,
           label: 'Create Buy Coin',
-          path: '/admin/BuyCoinPage'
+          path: '/admin/CreateBuyCoinPage'
         },
         {
           icon: <FaPiggyBank />,
           label: 'Buyers',
-          path: '/admin/BuyCoinPage'
+          path: '/admin/BuyStatus'
         },
         {
           icon: <FaChartLine />,
           label: 'Create Sell Coin',
-          path: '/admin/SellCoinPage'
+          path: '/admin/CreateSellCoinPage'
         },
         {
           icon: <FaChartLine />,
           label: 'Sellers',
-          path: '/admin/SellCoinPage'
+          path: '/admin/SellStatus'
         },
         {
           icon: <FaChartLine />,
-          label: 'Create Swap Coin',
-          path: '/admin/SwapCoinPage'
+          label: 'Swapped Coin',
+          path: '/admin/SwappedCoinPage'
         }
       ]
     },
@@ -83,17 +83,17 @@ export default function AdminHeader () {
         {
           icon: <FaPiggyBank />,
           label: 'Plans',
-          path: '/admin/InvestmentPlan'
+          path: '/admin/InvestmentPlanList'
         },
         {
           icon: <FaPiggyBank />,
           label: 'Create Plans',
-          path: '/admin/InvestmentPlan'
+          path: '/admin/CreateInvestmentPlan'
         },
         {
           icon: <FaChartLine />,
-          label: 'Active Investment',
-          path: '/admin/ActivePlanPage'
+          label: 'Plans Status',
+          path: '/admin/ActivePlanStatusPage'
         }
       ]
     },
@@ -102,18 +102,18 @@ export default function AdminHeader () {
       links: [
         {
           icon: <FaMoneyCheckAlt />,
-          label: 'Loan',
-          path: '/admin/LoansPage'
+          label: 'Loans',
+          path: '/admin/LoanListPage'
         },
         {
           icon: <FaMoneyCheckAlt />,
           label: 'Create Loan',
-          path: '/admin/ApplyLoanPage'
+          path: '/admin/CreateLoanPage'
         },
         {
           icon: <FaMoneyCheckAlt />,
-          label: 'Active Loans',
-          path: '/admin/LoanHistoryPage'
+          label: 'Loans Status',
+          path: '/admin/LoanStatusPage'
         }
       ]
     },
@@ -125,16 +125,20 @@ export default function AdminHeader () {
           label: 'Referrals',
           path: '/admin/ReferralPage'
         },
-        { icon: <FaChartLine />, label: 'Deposit', path: '/admin/DepositPage' },
         {
           icon: <FaChartLine />,
-          label: 'Withdrawal',
-          path: '/admin/WithdrawalPage'
+          label: 'Deposits',
+          path: '/admin/DepositStatus'
+        },
+        {
+          icon: <FaChartLine />,
+          label: 'Withdrawals',
+          path: '/admin/WithdrawalStatus'
         },
         {
           icon: <FaExchangeAlt />,
-          label: 'Transfer',
-          path: '/admin/TransferPage'
+          label: 'Transfers',
+          path: '/admin/TransferStatus'
         }
       ]
     },
@@ -144,27 +148,27 @@ export default function AdminHeader () {
         {
           icon: <FaCreditCard />,
           label: 'Email Settings',
-          path: '/admin/CardPage'
+          path: '/admin/EmailSettingsPage'
         },
         {
           icon: <FaCreditCard />,
           label: 'Email Templates',
-          path: '/admin/CardPage'
+          path: '/admin/EmailTemplatesPage'
         },
         {
           icon: <FaCreditCard />,
           label: 'Send Email',
-          path: '/admin/CardPage'
+          path: '/admin/SendEmailPage'
         },
         {
           icon: <FaCreditCard />,
           label: 'Send SMS',
-          path: '/admin/CardPage'
+          path: '/admin/SendSMSPage'
         },
         {
           icon: <FaCreditCard />,
           label: 'Pop up',
-          path: '/admin/CardPage'
+          path: '/admin/PopUpPage'
         }
       ]
     },
@@ -174,19 +178,36 @@ export default function AdminHeader () {
         {
           icon: <FaCreditCard />,
           label: 'Cryptocurrency',
-          path: '/admin/CardPage'
+          path: '/admin/CryptoGatewayPage'
         },
-        { icon: <FaHistory />, label: 'Transfers', path: '/admin/HistoryPage' },
-        { icon: <FaIdBadge />, label: 'Bank Card', path: '/admin/KycPage' }
+        {
+          icon: <FaHistory />,
+          label: 'Transfers',
+          path: '/admin/TransferGatewayPage'
+        },
+        {
+          icon: <FaIdBadge />,
+          label: 'Bank Card',
+          path: '/admin/BankCardGatewayPage'
+        }
       ]
     },
     {
       header: 'General App Settings',
       links: [
-        { icon: <FaCreditCard />, label: 'Card', path: '/admin/CardPage' },
-        { icon: <FaHistory />, label: 'History', path: '/admin/HistoryPage' },
-        { icon: <FaIdBadge />, label: 'KYC', path: '/admin/KycPage' },
-        { icon: <FaKey />, label: 'Password', path: '/admin/PasswordPage' }
+        { icon: <FaCreditCard />, label: 'Card', path: '/admin/UsersCardPage' },
+        {
+          icon: <FaCreditCard />,
+          label: 'Admin Role Management',
+          path: '/admin/RoleManagement'
+        },
+        {
+          icon: <FaHistory />,
+          label: 'App History',
+          path: '/admin/UsersHistoryPage'
+        },
+        { icon: <FaIdBadge />, label: 'KYC', path: '/admin/KycManagement' },
+        { icon: <FaKey />, label: 'Password', path: '/admin/adminPasswordPage' }
       ]
     },
     {
