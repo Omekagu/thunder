@@ -1,8 +1,8 @@
 .admin-dashboard {
-  color: #858585;
-  margin: 0px 10px;
+  color: #393939;
 
   .revenue-cards-container {
+    margin: 0px 10px;
     margin: 3rem 0.5rem;
     display: flex;
     flex-wrap: wrap;
@@ -11,6 +11,7 @@
   }
 
   .charts-container {
+    margin: 0px 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

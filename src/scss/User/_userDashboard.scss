@@ -47,14 +47,14 @@
   align-items: center;
   width: 100%;
   padding: 30px 28px 16px 28px;
-  border-radius: 0 0 32px 32px;
+  border-radius: 0 0 10px 10px;
   box-shadow: 0 4px 16px #191b2a22;
-  min-height: 78px;
+  min-height: 100px;
   .logo-section {
     display: flex;
     align-items: center;
     .brand-name {
-      width: 150px;
+      width: 200px;
       height: 70px;
       transition: color 0.3s;
       margin-right: 10px;

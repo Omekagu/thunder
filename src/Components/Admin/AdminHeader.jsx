@@ -254,7 +254,6 @@ export default function AdminHeader () {
             src='https://i.postimg.cc/NjS69Ysh/thunder-Xtorm-logo.png'
             alt='company logo'
             className='brand-name'
-            style={{ height: 36, width: 'auto', marginRight: 12 }}
           />
         </div>
         <div className='header-actions'>
