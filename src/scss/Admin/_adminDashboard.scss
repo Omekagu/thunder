@@ -1,11 +1,21 @@
 .admin-dashboard {
   color: #858585;
-  margin: 20px 10px;
+  margin: 0px 10px;
+
+  .revenue-cards-container {
+    margin: 3rem 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
 
   .charts-container {
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 3rem 0;
 
     @media (max-width: 768px) {
       flex-direction: column;

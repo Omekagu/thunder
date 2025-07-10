@@ -34,7 +34,7 @@ export default function DonutChart () {
 
   return (
     <div className='chartContainer'>
-      <h3 className='title'>Overview</h3>
+      <h3 className='title'>App Overview</h3>
       <canvas ref={chartRef} />
       <div className='labels'>
         <div>
