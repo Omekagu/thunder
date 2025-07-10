@@ -36,6 +36,8 @@
 @use './Admin/Components/gradientLineChart';
 @use './Admin/Components/table';
 @use './Admin/Components/kycManagementComp';
+@use './Admin/buyStatus';
+@use './Admin/createBuyCoinPage';
 
 // 🔴 Move all @import *after* @use
 @use './Base/base' as base;
