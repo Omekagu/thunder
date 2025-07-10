@@ -8,10 +8,10 @@
     width: 100% !important;
     height: auto !important;
   }
-}
-
-@media (min-width: 768px) {
-  .chartWrapper {
-    padding: 2rem;
+  @media (min-width: 768px) {
+    .chartWrapper {
+      max-width: 100%;
+      padding: 2rem;
+    }
   }
 }
