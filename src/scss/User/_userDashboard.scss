@@ -46,7 +46,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 30px 28px 16px 28px;
+  padding: 10px;
   border-radius: 0 0 10px 10px;
   box-shadow: 0 4px 16px #191b2a22;
   min-height: 100px;
@@ -55,7 +55,7 @@
     align-items: center;
     .brand-name {
       width: 200px;
-      height: 70px;
+      height: 100px;
       transition: color 0.3s;
       margin-right: 10px;
     }
@@ -70,7 +70,9 @@
       border-radius: 12px;
       padding: 8px 12px;
       color: #000;
-      font-size: 1rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 1px;
       cursor: pointer;
       transition: background 0.18s, box-shadow 0.18s, transform 0.12s;
       box-shadow: 0 2px 8px #18181822;

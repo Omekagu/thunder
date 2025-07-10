@@ -251,7 +251,7 @@ export default function AdminHeader () {
       <header className='dashboard-header'>
         <div className='logo-section'>
           <img
-            src='https://i.postimg.cc/NjS69Ysh/thunder-Xtorm-logo.png'
+            src='https://i.postimg.cc/PxxryJqc/thunder-Xtorm-logo-removebg-preview.png'
             alt='company logo'
             className='brand-name'
           />

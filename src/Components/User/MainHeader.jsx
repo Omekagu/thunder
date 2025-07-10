@@ -118,7 +118,7 @@ export default function MainHeader () {
         {
           icon: <FaUser />,
           label: 'Profile Settings',
-          path: '/user/ProfilePage'
+          path: '/user/Profilepage'
         }
       ]
     },
@@ -468,7 +468,7 @@ export default function MainHeader () {
       <header className='dashboard-header'>
         <div className='logo-section'>
           <img
-            src='https://i.postimg.cc/NjS69Ysh/thunder-Xtorm-logo.png'
+            src='https://i.postimg.cc/PxxryJqc/thunder-Xtorm-logo-removebg-preview.png'
             alt='company logo'
             className='brand-name'
           />

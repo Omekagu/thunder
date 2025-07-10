@@ -13,13 +13,15 @@ export default function RevenueCard ({ title, value, date }) {
   return (
     <div className='revenue-card pink'>
       <div className='top'>
-        <p>{title}</p>
-        <div className='mini-chart'>
-          <ResponsiveContainer width={50} height={40}>
-            <BarChart data={data}>
-              <Bar dataKey='value' fill='#fff' />
-            </BarChart>
-          </ResponsiveContainer>
+        <div className='icon'>
+          <p>{title}</p>
+          <div className='mini-chart'>
+            <ResponsiveContainer width={50} height={40}>
+              <BarChart data={data}>
+                <Bar dataKey='value' fill='#fff' />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
         </div>
       </div>
       <h2>{value}</h2>

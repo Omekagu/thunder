@@ -4,6 +4,10 @@
   border-radius: 15px;
   color: #000;
   width: 100%;
+  min-height: 180px;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
   max-width: 350px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
@@ -14,18 +18,24 @@
 
     p {
       font-size: 1rem;
-      font-weight: 900;
+      font-weight: 500;
     }
-
+    .icon {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
     .mini-chart {
       width: 60px;
       height: 40px;
+      margin-left: auto;
     }
   }
 
   h2 {
     margin: 0.5rem 0 0;
-    font-size: 1.1rem;
+    font-size: 2rem;
   }
 
   span {
@@ -33,14 +43,13 @@
     opacity: 0.85;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 750px) {
     flex-direction: column;
     align-items: center;
-    max-width: 400px;
-  }
+    max-width: 100%;
 
-  @media (max-width: 400px) {
-    width: 100%;
-    max-width: 400px;
+    .mini-chart {
+      display: none;
+    }
   }
 }
