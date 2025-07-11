@@ -5,13 +5,13 @@ import { useState } from 'react'
 import {
   Box,
   Typography,
-  Paper,
   Grid,
   Card,
   CardContent,
   Divider,
   Chip,
-  Stack
+  Stack,
+  Button
 } from '@mui/material'
 import AdminHeader from '../../Components/Admin/AdminHeader'
 
@@ -43,6 +43,14 @@ const mockPlans = [
 export default function InvestmentPlanList () {
   const [plans, setPlans] = useState(mockPlans)
 
+  const handleDelete = id => {
+    setPlans(prev => prev.filter(plan => plan.id !== id))
+  }
+
+  const handleEdit = id => {
+    alert('Edit Plan ID: ' + id)
+  }
+
   return (
     <>
       <AdminHeader />
@@ -54,7 +62,7 @@ export default function InvestmentPlanList () {
         }}
       >
         <Typography
-          variant='h6'
+          variant='h5'
           fontWeight={700}
           textAlign='center'
           gutterBottom
@@ -98,8 +106,8 @@ export default function InvestmentPlanList () {
                     </Typography>
 
                     <Typography variant='body2' color='text.secondary'>
-                      <strong>Investment Range:</strong> $
-                      {plan.minAmount.toLocaleString()} - $
+                      <strong>Investment Range:</strong> ₦
+                      {plan.minAmount.toLocaleString()} - ₦
                       {plan.maxAmount.toLocaleString()}
                     </Typography>
 
@@ -112,6 +120,25 @@ export default function InvestmentPlanList () {
                       <strong>Capital Back:</strong>{' '}
                       {plan.capitalBack ? 'Yes' : 'No'}
                     </Typography>
+
+                    <Stack direction='row' spacing={2} mt={1}>
+                      <Button
+                        variant='outlined'
+                        size='small'
+                        color='primary'
+                        onClick={() => handleEdit(plan.id)}
+                      >
+                        Edit
+                      </Button>
+                      <Button
+                        variant='outlined'
+                        size='small'
+                        color='error'
+                        onClick={() => handleDelete(plan.id)}
+                      >
+                        Delete
+                      </Button>
+                    </Stack>
                   </Stack>
                 </CardContent>
               </Card>
