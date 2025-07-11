@@ -72,7 +72,7 @@ export default function AdminHeader () {
         },
         {
           icon: <FaChartLine />,
-          label: 'Swapped Coin',
+          label: 'Swap Coin',
           path: '/admin/SwappedCoinPage'
         }
       ]

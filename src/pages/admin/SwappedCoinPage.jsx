@@ -1,118 +1,169 @@
+// File: pages/admin/swap-settings.jsx
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import {
   Box,
   Typography,
   Paper,
   TextField,
-  MenuItem,
-  Button
+  Button,
+  Grid,
+  IconButton,
+  Divider
 } from '@mui/material'
+import { Delete } from '@mui/icons-material'
 import AdminHeader from '../../Components/Admin/AdminHeader'
 
-const coins = [
-  { symbol: 'ETH', name: 'Ethereum', balance: 5, rate: 3000 },
-  { symbol: 'BNB', name: 'Binance Coin', balance: 10, rate: 200 },
-  { symbol: 'USDT', name: 'Tether', balance: 15, rate: 1 },
-  { symbol: 'BTC', name: 'Bitcoin', balance: 2, rate: 60000 }
-]
+export default function SwapSettings () {
+  const [coins, setCoins] = useState([
+    { symbol: 'ETH', name: 'Ethereum', rate: 3000 },
+    { symbol: 'BNB', name: 'Binance Coin', rate: 200 },
+    { symbol: 'USDT', name: 'Tether', rate: 1 },
+    { symbol: 'BTC', name: 'Bitcoin', rate: 60000 }
+  ])
+  const [fee, setFee] = useState(0)
+  const [newCoin, setNewCoin] = useState({ name: '', symbol: '', rate: '' })
 
-export default function SwapPage () {
-  const [fromCoin, setFromCoin] = useState('ETH')
-  const [toCoin, setToCoin] = useState('USDT')
-  const [amount, setAmount] = useState('')
-  const [receiveAmount, setReceiveAmount] = useState(0)
+  const updateRate = (index, newRate) => {
+    const updated = [...coins]
+    updated[index].rate = parseFloat(newRate)
+    setCoins(updated)
+  }
 
-  useEffect(() => {
-    const from = coins.find(c => c.symbol === fromCoin)
-    const to = coins.find(c => c.symbol === toCoin)
+  const handleAddCoin = () => {
+    if (!newCoin.name || !newCoin.symbol || !newCoin.rate) return
+    setCoins([...coins, { ...newCoin, rate: parseFloat(newCoin.rate) }])
+    setNewCoin({ name: '', symbol: '', rate: '' })
+  }
 
-    if (from && to && amount && from.symbol !== to.symbol) {
-      const usdValue = parseFloat(amount) * from.rate
-      const targetAmount = usdValue / to.rate
-      setReceiveAmount(targetAmount)
-    } else {
-      setReceiveAmount(0)
-    }
-  }, [amount, fromCoin, toCoin])
+  const handleDelete = index => {
+    const updated = [...coins]
+    updated.splice(index, 1)
+    setCoins(updated)
+  }
 
-  const handleSwap = () => {
-    alert(
-      `Swapped ${amount} ${fromCoin} to ${receiveAmount.toFixed(4)} ${toCoin}`
-    )
+  const handleSave = () => {
+    alert('Swap settings saved successfully.')
   }
 
   return (
     <>
       <AdminHeader />
-      <Box className='page'>
-        <Paper className='swapBox'>
-          <Typography variant='h6' gutterBottom>
-            Coin Swap
-          </Typography>
+      <Box
+        sx={{
+          p: { xs: 2, md: 4 },
+          backgroundColor: '#f9fafe',
+          minHeight: '100vh'
+        }}
+      >
+        <Paper elevation={3} sx={{ p: { xs: 2, md: 4 }, borderRadius: 4 }}>
+          <Grid container spacing={3}>
+            <Grid item xs={12}>
+              <Typography variant='h6' gutterBottom fontWeight={500}>
+                Manage Coin Rates
+              </Typography>
+              <Divider sx={{ mb: 2 }} />
+            </Grid>
 
-          <TextField
-            select
-            label='From'
-            value={fromCoin}
-            onChange={e => setFromCoin(e.target.value)}
-            fullWidth
-            className='selectInput'
-          >
-            {coins.map(coin => (
-              <MenuItem key={coin.symbol} value={coin.symbol}>
-                {coin.name} ({coin.symbol}) - Balance: {coin.balance}
-              </MenuItem>
+            {coins.map((coin, index) => (
+              <Grid item xs={12} md={6} key={index}>
+                <Paper
+                  sx={{
+                    p: 2,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    borderRadius: 2,
+                    background: '#f4f6f8'
+                  }}
+                >
+                  <TextField
+                    label={`${coin.name} (${coin.symbol}) Rate (USD)`}
+                    type='number'
+                    fullWidth
+                    value={coin.rate}
+                    onChange={e => updateRate(index, e.target.value)}
+                    sx={{ mr: 2 }}
+                  />
+                  <IconButton onClick={() => handleDelete(index)} color='error'>
+                    <Delete />
+                  </IconButton>
+                </Paper>
+              </Grid>
             ))}
-          </TextField>
 
-          <TextField
-            select
-            label='To'
-            value={toCoin}
-            onChange={e => setToCoin(e.target.value)}
-            fullWidth
-            className='selectInput'
-          >
-            {coins.map(coin => (
-              <MenuItem key={coin.symbol} value={coin.symbol}>
-                {coin.name} ({coin.symbol}) - Rate: ${coin.rate}
-              </MenuItem>
-            ))}
-          </TextField>
+            <Grid item xs={12}>
+              <Typography variant='h6' gutterBottom fontWeight={500} mt={4}>
+                Add New Coin
+              </Typography>
+              <Divider sx={{ mb: 2 }} />
+            </Grid>
 
-          <TextField
-            label='Amount'
-            type='number'
-            value={amount}
-            onChange={e => setAmount(e.target.value)}
-            fullWidth
-            className='amountInput'
-          />
+            <Grid item xs={12} md={4}>
+              <TextField
+                label='Coin Name'
+                value={newCoin.name}
+                onChange={e => setNewCoin({ ...newCoin, name: e.target.value })}
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <TextField
+                label='Symbol'
+                value={newCoin.symbol}
+                onChange={e =>
+                  setNewCoin({
+                    ...newCoin,
+                    symbol: e.target.value.toUpperCase()
+                  })
+                }
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <TextField
+                label='Rate (USD)'
+                type='number'
+                value={newCoin.rate}
+                onChange={e => setNewCoin({ ...newCoin, rate: e.target.value })}
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Button onClick={handleAddCoin} variant='outlined' size='large'>
+                Add Coin
+              </Button>
+            </Grid>
 
-          <Typography variant='body2' style={{ marginTop: '0.5rem' }}>
-            Your {fromCoin} balance:{' '}
-            {coins.find(c => c.symbol === fromCoin)?.balance}
-          </Typography>
+            <Grid item xs={12}>
+              <Typography variant='h6' gutterBottom fontWeight={500} mt={4}>
+                Global Swap Fee
+              </Typography>
+              <Divider sx={{ mb: 2 }} />
+            </Grid>
 
-          <Typography variant='body2' style={{ marginTop: '0.5rem' }}>
-            You will receive:{' '}
-            <strong>
-              {receiveAmount.toFixed(4)} {toCoin}
-            </strong>
-          </Typography>
+            <Grid item xs={12} md={6}>
+              <TextField
+                label='Swap Fee (%)'
+                type='number'
+                fullWidth
+                value={fee}
+                onChange={e => setFee(e.target.value)}
+              />
+            </Grid>
 
-          <Button
-            variant='contained'
-            color='primary'
-            fullWidth
-            className='swapButton'
-            onClick={handleSwap}
-            disabled={!amount || fromCoin === toCoin}
-          >
-            Swap coin
-          </Button>
+            <Grid item xs={12}>
+              <Button
+                variant='contained'
+                onClick={handleSave}
+                size='large'
+                sx={{ mt: 2, borderRadius: 2 }}
+              >
+                Save Settings
+              </Button>
+            </Grid>
+          </Grid>
         </Paper>
       </Box>
     </>
