@@ -21,18 +21,24 @@ const mockUsers = [
     id: 1,
     name: 'Alice Johnson',
     referredBy: 'Bob Smith',
+    date: '12th jan 2024',
+    time: '10:30 AM',
     deposit: 12000
   },
   {
     id: 2,
     name: 'David Brown',
     referredBy: 'Alice Johnson',
+    date: '15th jan 2024',
+    time: '11:00 AM',
     deposit: 7000
   },
   {
     id: 3,
     name: 'Sarah Miller',
     referredBy: 'Bob Smith',
+    date: '20th jan 2024',
+    time: '12:00 PM',
     deposit: 10000
   }
 ]
@@ -72,6 +78,9 @@ export default function UserReferredPage () {
                   Referred By
                 </TableCell>
                 <TableCell sx={{ color: '#fff', fontWeight: 600 }}>
+                  Date of registration
+                </TableCell>
+                <TableCell sx={{ color: '#fff', fontWeight: 600 }}>
                   Deposit Balance ($)
                 </TableCell>
               </TableRow>
@@ -86,6 +95,9 @@ export default function UserReferredPage () {
                     </Stack>
                   </TableCell>
                   <TableCell>{user.referredBy}</TableCell>
+                  <TableCell>
+                    {user.date} {user.time}
+                  </TableCell>
                   <TableCell
                     sx={{
                       fontWeight: 900,
