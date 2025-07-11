@@ -117,7 +117,7 @@ export default function AdminHeader () {
         {
           icon: <FaChartLine />,
           label: 'Referrals',
-          path: '/admin/ReferralPage'
+          path: '/admin/UserReferredPage'
         },
         {
           icon: <FaChartLine />,
