@@ -32,9 +32,9 @@ export default function PopUpPage () {
   }, [submittedMessage])
 
   return (
-    <>
+    <div>
       <AdminHeader />
-      <Box>
+      <Box className='buyStatusPage'>
         <Typography variant='h6' fontWeight={600} mb={2}>
           Send User Notification
         </Typography>
@@ -62,6 +62,6 @@ export default function PopUpPage () {
           </Alert>
         </Snackbar>
       </Box>
-    </>
+    </div>
   )
 }
