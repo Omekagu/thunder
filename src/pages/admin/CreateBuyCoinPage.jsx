@@ -36,7 +36,7 @@ export default function CreateBuyCoinPage () {
   return (
     <>
       <AdminHeader />
-      <Box className='page'>
+      <Box className='createBuyCoinPage'>
         <Paper className='form'>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={4}>

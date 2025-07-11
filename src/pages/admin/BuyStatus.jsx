@@ -1,4 +1,3 @@
-// File: pages/admin/buy-status.jsx
 'use client'
 
 import React, { useState } from 'react'
@@ -64,7 +63,7 @@ export default function BuyStatus () {
   return (
     <>
       <AdminHeader />
-      <Box className='page'>
+      <Box className='buyStatusPage'>
         <h4>Buyers Requests</h4>
 
         <Paper className='tableWrapper'>
@@ -88,7 +87,6 @@ export default function BuyStatus () {
                   <TableCell>
                     {dayjs(request.date).format('YYYY-MM-DD HH:mm')}
                   </TableCell>
-                  {/* <TableCell>{new Date(request.date).toLocaleString()}</TableCell> */}
                   <TableCell>{request.status}</TableCell>
                   <TableCell>
                     {request.status === 'pending' ? (

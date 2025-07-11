@@ -64,7 +64,7 @@ export default function SellStatus () {
   return (
     <>
       <AdminHeader />
-      <Box className='page'>
+      <Box className='buyStatusPage'>
         <h4>Sellers Requests</h4>
 
         <Paper className='tableWrapper'>

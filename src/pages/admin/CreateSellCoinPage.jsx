@@ -36,7 +36,7 @@ export default function CreateSellCoinPage () {
   return (
     <>
       <AdminHeader />
-      <Box className='page'>
+      <Box className='createBuyCoinPage'>
         <h5>Create Coin to Sell</h5>
 
         <Paper className='form'>

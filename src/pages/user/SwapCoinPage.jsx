@@ -46,7 +46,7 @@ export default function SwapCoinPage () {
   return (
     <>
       <MainHeader />
-      <Box className='page'>
+      <Box className='swappedCoinpage'>
         <Paper className='swapBox'>
           <Typography variant='h6' gutterBottom>
             Coin Swap
