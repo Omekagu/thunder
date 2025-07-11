@@ -1,4 +1,3 @@
-// File: pages/admin/swap-settings.jsx
 'use client'
 
 import { useState } from 'react'
