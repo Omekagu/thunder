@@ -1,58 +1,47 @@
-// File: pages/admin/investment-plan.jsx
+// File: pages/admin/investment-plans.jsx
 'use client'
 
 import { useState } from 'react'
 import {
   Box,
   Typography,
-  TextField,
   Paper,
   Grid,
-  Switch,
-  FormControlLabel,
-  Button,
-  MenuItem,
-  Divider
+  Card,
+  CardContent,
+  Divider,
+  Chip,
+  Stack
 } from '@mui/material'
 import AdminHeader from '../../Components/Admin/AdminHeader'
 
-export default function InvestmentPlan () {
-  const [categories, setCategories] = useState(['Short Term', 'Long Term'])
-  const [newCategory, setNewCategory] = useState('')
-  const [plan, setPlan] = useState({
-    name: '',
-    profit: '',
-    minAmount: '',
-    maxAmount: '',
-    duration: '',
+const mockPlans = [
+  {
+    id: 1,
+    name: 'Starter Plan',
+    category: 'Short Term',
+    profit: 15,
+    minAmount: 1000,
+    maxAmount: 5000,
+    duration: 30,
     durationType: 'days',
-    capitalBack: true,
-    category: ''
-  })
-
-  const handleChange = e => {
-    const { name, value } = e.target
-    setPlan({ ...plan, [name]: value })
+    capitalBack: true
+  },
+  {
+    id: 2,
+    name: 'Growth Plan',
+    category: 'Long Term',
+    profit: 50,
+    minAmount: 10000,
+    maxAmount: 100000,
+    duration: 3,
+    durationType: 'months',
+    capitalBack: false
   }
+]
 
-  const handleSwitchChange = e => {
-    setPlan({ ...plan, [e.target.name]: e.target.checked })
-  }
-
-  const handleDurationTypeChange = e => {
-    setPlan({ ...plan, durationType: e.target.value })
-  }
-
-  const handleAddCategory = () => {
-    if (newCategory && !categories.includes(newCategory)) {
-      setCategories([...categories, newCategory])
-      setNewCategory('')
-    }
-  }
-
-  const handleSubmit = () => {
-    alert('Investment Plan Created: ' + JSON.stringify(plan, null, 2))
-  }
+export default function InvestmentPlanList () {
+  const [plans, setPlans] = useState(mockPlans)
 
   return (
     <>
@@ -60,155 +49,75 @@ export default function InvestmentPlan () {
       <Box
         sx={{
           p: { xs: 2, md: 4 },
-          backgroundColor: '#f9fafe',
+          backgroundColor: '#f4f6f8',
           minHeight: '100vh'
         }}
       >
         <Typography
           variant='h6'
-          gutterBottom
-          fontWeight={600}
+          fontWeight={700}
           textAlign='center'
+          gutterBottom
         >
-          Create Investment Plan
+          Investment Plans Overview
         </Typography>
-        <Paper sx={{ p: 4, borderRadius: 4, maxWidth: 700, mx: 'auto' }}>
-          <Grid container spacing={3}>
-            <Grid item xs={12}>
-              <Typography variant='h6'>Add Category</Typography>
-              <Grid container spacing={2}>
-                <Grid item xs={8}>
-                  <TextField
-                    label='New Category'
-                    fullWidth
-                    value={newCategory}
-                    onChange={e => setNewCategory(e.target.value)}
-                  />
-                </Grid>
-                <Grid item xs={4}>
-                  <Button
-                    onClick={handleAddCategory}
-                    variant='outlined'
-                    fullWidth
-                    sx={{ height: '100%' }}
-                  >
-                    Add
-                  </Button>
-                </Grid>
-              </Grid>
-            </Grid>
 
-            <Grid item xs={12}>
-              <TextField
-                select
-                label='Select Category'
-                name='category'
-                value={plan.category}
-                onChange={handleChange}
-                fullWidth
+        <Typography
+          variant='body1'
+          textAlign='center'
+          color='text.secondary'
+          mb={4}
+        >
+          Review and manage all active investment plans
+        </Typography>
+
+        <Grid container spacing={4} justifyContent='center'>
+          {plans.map(plan => (
+            <Grid item xs={12} sm={6} md={4} key={plan.id}>
+              <Card
+                elevation={4}
+                sx={{ borderRadius: 4, background: '#ffffff' }}
               >
-                {categories.map((cat, index) => (
-                  <MenuItem key={index} value={cat}>
-                    {cat}
-                  </MenuItem>
-                ))}
-              </TextField>
-            </Grid>
+                <CardContent>
+                  <Stack spacing={1.2}>
+                    <Stack
+                      direction='row'
+                      justifyContent='space-between'
+                      alignItems='center'
+                    >
+                      <Typography variant='h6' fontWeight={600}>
+                        {plan.name}
+                      </Typography>
+                      <Chip label={plan.category} color='info' size='small' />
+                    </Stack>
 
-            <Grid item xs={12}>
-              <TextField
-                label='Plan Name'
-                name='name'
-                fullWidth
-                value={plan.name}
-                onChange={handleChange}
-              />
-            </Grid>
+                    <Divider />
 
-            <Grid item xs={12} md={6}>
-              <TextField
-                label='Profit (%)'
-                name='profit'
-                type='number'
-                fullWidth
-                value={plan.profit}
-                onChange={handleChange}
-              />
-            </Grid>
+                    <Typography variant='body2' color='text.secondary'>
+                      <strong>Profit:</strong> {plan.profit}%
+                    </Typography>
 
-            <Grid item xs={12} md={6}>
-              <FormControlLabel
-                control={
-                  <Switch
-                    checked={plan.capitalBack}
-                    onChange={handleSwitchChange}
-                    name='capitalBack'
-                  />
-                }
-                label='Capital Back on Completion'
-              />
-            </Grid>
+                    <Typography variant='body2' color='text.secondary'>
+                      <strong>Investment Range:</strong> $
+                      {plan.minAmount.toLocaleString()} - $
+                      {plan.maxAmount.toLocaleString()}
+                    </Typography>
 
-            <Grid item xs={12} md={6}>
-              <TextField
-                label='Min Amount'
-                name='minAmount'
-                type='number'
-                fullWidth
-                value={plan.minAmount}
-                onChange={handleChange}
-              />
-            </Grid>
+                    <Typography variant='body2' color='text.secondary'>
+                      <strong>Duration:</strong> {plan.duration}{' '}
+                      {plan.durationType}
+                    </Typography>
 
-            <Grid item xs={12} md={6}>
-              <TextField
-                label='Max Amount'
-                name='maxAmount'
-                type='number'
-                fullWidth
-                value={plan.maxAmount}
-                onChange={handleChange}
-              />
+                    <Typography variant='body2' color='text.secondary'>
+                      <strong>Capital Back:</strong>{' '}
+                      {plan.capitalBack ? 'Yes' : 'No'}
+                    </Typography>
+                  </Stack>
+                </CardContent>
+              </Card>
             </Grid>
-
-            <Grid item xs={12} md={6}>
-              <TextField
-                label='Minimum Withdrawal Duration'
-                name='duration'
-                type='number'
-                fullWidth
-                value={plan.duration}
-                onChange={handleChange}
-              />
-            </Grid>
-
-            <Grid item xs={12} md={6}>
-              <TextField
-                select
-                label='Duration Type'
-                name='durationType'
-                value={plan.durationType}
-                onChange={handleDurationTypeChange}
-                fullWidth
-              >
-                <MenuItem value='days'>Days</MenuItem>
-                <MenuItem value='months'>Months</MenuItem>
-              </TextField>
-            </Grid>
-
-            <Grid item xs={12}>
-              <Divider sx={{ my: 2 }} />
-              <Button
-                variant='contained'
-                size='large'
-                fullWidth
-                onClick={handleSubmit}
-              >
-                Create Plan
-              </Button>
-            </Grid>
-          </Grid>
-        </Paper>
+          ))}
+        </Grid>
       </Box>
     </>
   )
