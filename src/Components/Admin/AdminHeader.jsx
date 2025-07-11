@@ -43,7 +43,6 @@ export default function AdminHeader () {
           label: 'Users',
           path: '/admin/Users'
         },
-        { icon: <FaUser />, label: 'Manage Users', path: '/admin/ManageUsers' },
         { icon: <FaUser />, label: 'KYC control', path: '/admin/KycManagement' }
       ]
     },
@@ -89,11 +88,6 @@ export default function AdminHeader () {
           icon: <FaPiggyBank />,
           label: 'Create Plans',
           path: '/admin/CreateInvestmentPlan'
-        },
-        {
-          icon: <FaChartLine />,
-          label: 'Plans Status',
-          path: '/admin/ActivePlanStatusPage'
         }
       ]
     },
