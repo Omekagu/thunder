@@ -38,6 +38,7 @@
 @use './Admin/Components/kycManagementComp';
 @use './Admin/buyStatus';
 @use './Admin/createBuyCoinPage';
+@use './Admin/swappedCoinpage';
 
 // 🔴 Move all @import *after* @use
 @use './Base/base' as base;
