@@ -60,7 +60,7 @@ export default function SwapSettings () {
           <Grid container spacing={3}>
             <Grid item xs={12}>
               <Typography variant='h6' gutterBottom fontWeight={500}>
-                Manage Coin Rates
+                Manage Coin swap Rates
               </Typography>
               <Divider sx={{ mb: 2 }} />
             </Grid>
