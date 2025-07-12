@@ -39,6 +39,8 @@
 @use './Admin/buyStatus';
 @use './Admin/createBuyCoinPage';
 @use './Admin/swappedCoinpage';
+@use './Admin/cryptoGatewayPage';
+@use './Admin/walletManager';
 
 // 🔴 Move all @import *after* @use
 @use './Base/base' as base;

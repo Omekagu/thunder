@@ -175,6 +175,11 @@ export default function AdminHeader () {
           path: '/admin/CryptoGatewayPage'
         },
         {
+          icon: <FaCreditCard />,
+          label: 'Wallet Manager',
+          path: '/admin/WalletManager'
+        },
+        {
           icon: <FaHistory />,
           label: 'Transfers',
           path: '/admin/TransferGatewayPage'
